@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,9 +9,10 @@
   <link rel="stylesheet" href="style.css">
   <title>Performance</title>
 </head>
+
 <body>
-<nav class="navbar navbar-expand-lg">
-    <div class="container-fluid py-4 bg-body-light">
+  <nav class="navbar navbar-expand-lg">
+    <div class="container-fluid py-4 bg-body-tertiary">
       <a class="navbar-brand ps-5" href="#">Logo</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
         aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -22,7 +24,7 @@
             <a class="nav-link mx-3" href="home.php">HOME</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link mx-3 current-page-nav" href="#">PERFORMANCE</a>
+            <a class="nav-link mx-3 current-page-nav" href="performance.php">PERFORMANCE</a>
           </li>
 
         </ul>
@@ -30,4 +32,5 @@
     </div>
   </nav>
 </body>
+
 </html>

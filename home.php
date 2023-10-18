@@ -12,7 +12,7 @@
 
 <body>
   <nav class="navbar navbar-expand-lg">
-    <div class="container-fluid py-4 bg-body-light">
+    <div class="container-fluid py-4 bg-body-tertiary">
       <a class="navbar-brand ps-5" href="#">Logo</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
         aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -21,7 +21,7 @@
       <div class="collapse navbar-collapse justify-content-end me-5" id="navbarNav">
         <ul class="navbar-nav">
           <li class="nav-item">
-            <a class="nav-link mx-3 current-page-nav" href="#">HOME</a>
+            <a class="nav-link mx-3 current-page-nav" href="home.php">HOME</a>
           </li>
           <li class="nav-item">
             <a class="nav-link mx-3" href="performance.php">PERFORMANCE</a>
