@@ -17,7 +17,52 @@ html, body{
   text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
-footer a, p{
-  text-decoration: none;
+footer a{
+  text-decoration: none !important;
 }
 
+footer hr{
+  width: 80%;
+  border: 2px solid white;
+  background-color: white;
+}
+
+.custom-img{
+  width: 100px;
+}
+
+.footer-custom-img{
+  width: 300px;
+}
+
+
+.icon {
+  margin-top: 40px;
+  display: grid;
+  grid-template-columns: repeat(5, 50px);
+  grid-gap: 20px;
+}
+
+.icon li {
+  list-style-type: none;
+}
+
+.icon li a {
+  display: inline-block;
+  width: 50px;
+  height: 50px;
+  background: grey;
+  display: grid;
+  align-content: center;
+  justify-content: center;
+  border-radius: 40%;
+}
+
+.icon li a img {
+  width: 30px;
+  height: 30px;
+}
+
+.icon li a:hover {
+  background: lightblue;
+}

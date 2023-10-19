@@ -14,8 +14,10 @@
   <body>
     <!-- navbar  -->
     <nav class="navbar navbar-expand-lg">
-      <div class="container-fluid py-4 bg-body-tertiary">
-        <a class="navbar-brand ps-5" href="#">Logo</a>
+      <div class="container-fluid py-2 bg-body-tertiary">
+        <a class="navbar-brand ps-5" href="#">
+          <img src="image/logo_black.png" alt="" class="img-responsive custom-img">
+        </a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
       aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -34,33 +36,53 @@
   </div>
 </nav>
 
+<!-- section 1 -->
+<section class="container h-auto">
+
+</section>
+
+<!-- section 2 table karyawan tetap -->
+<section class="container h-auto">
+
+</section>
+
+<!-- section 3 table karyawan tidak tetap-->
+<section class="container h-auto">
+
+</section>
+
 <!-- footer -->
-<footer class="py-3 my-4 bg-black container-fluid">
-  <div class="row">
-    <ul class="nav justify-content-center border-bottom pb-3 mb-3">
-      <li class="nav-item">
+<footer class="py-3 my-4 bg-black container-fluid text-light">
+  <div class="row pt-3">
+    <ul class="nav justify-content-center pb-2">
+      <li class="nav-item mx-3">
         <a href="#" class="nav-link px-2 text-light">Home</a>
       </li>
-      <li class="nav-item">
-        <a href="#" class="nav-link px-2 text-light">Home</a>
-      </li>
-      <li class="nav-item">
-        <a href="#" class="nav-link px-2 text-light">Home</a>
-      </li>
-      <li class="nav-item">
-        <a href="#" class="nav-link px-2 text-light">Home</a>
+      <li class="nav-item mx-3">
+        <a href="#" class="nav-link px-2 text-light">Performance</a>
       </li>
     </ul>
   </div>
-  <div class="row border">
-    <div class="col border">
-        Imge
+  <hr class="d-flex justify-content-center mx-auto">
+  <div class="row px-5 mx-5">
+    <div class="col pe-5 me-5">
+        <img src="image/logo_white.png" alt="logo" class="img-responsive mx-auto d-block footer-custom-img">
     </div>
-    <div class="col border">
-        Isi
+    <div class="col pe-5 me-5 d-flex flex-column justify-content-center">
+        ISI
+        <br/>
+        <div class="row">
+          <ul class="icon">
+          <li><a href="#"><img src="icon/instagram.png" alt="ig"></a></li>
+          <li><a href="#"><img src="icon/facebook.png" alt="fb"></a></li>
+          <li><a href="#"><img src="icon/linkedin.png" alt="li"></a></li>
+          <li><a href="#"><img src="icon/youtube.png" alt="yt"></a></li>
+          <li><a href="#"><img src="icon/twitter.png" alt="tw"></a></li>
+          </ul>
+        </div>
     </div>
   </div>
-  <div class="row border">
+  <div class="row">
     <p class="text-center text-light">© 2023 Company, Inc</p>
   </div>
 
