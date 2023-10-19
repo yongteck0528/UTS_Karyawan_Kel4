@@ -12,6 +12,7 @@
   </head>
   
   <body>
+    <!-- navbar  -->
     <nav class="navbar navbar-expand-lg">
       <div class="container-fluid py-4 bg-body-tertiary">
         <a class="navbar-brand ps-5" href="#">Logo</a>
@@ -32,6 +33,39 @@
     </div>
   </div>
 </nav>
+
+<!-- footer -->
+<footer class="py-3 my-4 bg-black container-fluid">
+  <div class="row">
+    <ul class="nav justify-content-center border-bottom pb-3 mb-3">
+      <li class="nav-item">
+        <a href="#" class="nav-link px-2 text-light">Home</a>
+      </li>
+      <li class="nav-item">
+        <a href="#" class="nav-link px-2 text-light">Home</a>
+      </li>
+      <li class="nav-item">
+        <a href="#" class="nav-link px-2 text-light">Home</a>
+      </li>
+      <li class="nav-item">
+        <a href="#" class="nav-link px-2 text-light">Home</a>
+      </li>
+    </ul>
+  </div>
+  <div class="row border">
+    <div class="col border">
+        Imge
+    </div>
+    <div class="col border">
+        Isi
+    </div>
+  </div>
+  <div class="row border">
+    <p class="text-center text-light">© 2023 Company, Inc</p>
+  </div>
+
+</footer>
+
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-..." crossorigin="anonymous"></script>
 </body>
 
