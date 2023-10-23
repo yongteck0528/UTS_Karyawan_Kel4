@@ -38,44 +38,44 @@
 
   <!-- form -->
   <form action="" method="POST" enctype="multipart/form-data">
-    <table>
+    <table cellspacing="5" class="mx-auto my-4">
       <tr>
-        <td>Foto :</td>
-        <td><input type="file" accept=".png, .jpg, .jpeg, .jfif, .gif" name="foto" required /></td>
+        <td align="right">Foto    :</td>
+        <td colspan="3"><input type="file" accept=".png, .jpg, .jpeg, .jfif, .gif" name="foto" required /></td>
       </tr>
       <tr>
-        <td>Tanggal Penilaian :</td>
+        <td align="right">Tanggal Penilaian :</td>
         <td><input type="date" class="w-75 my-2 mx-2" name="tglPenilaian" required></td>
-        <td>Responsibility (30%) :</td>
+        <td align="right">Responsibility (30%) :</td>
         <td><input type="number" class="w-75 my-2 mx-2" name="responsibility" min="0" max="100" required></td>
       </tr>
       <tr>
-        <td>NIK :</td>
+        <td align="right">NIK :</td>
         <td><input type="text" class="w-75 my-2 mx-2" name="NIK" required></td>
-        <td>Teamwork (30%) :</td>
+        <td align="right">Teamwork (30%) :</td>
         <td><input type="number" class="w-75 my-2 mx-2" name="teamwork" min="0" max="100" required></td>
       </tr>
       <tr>
-        <td>Nama :</td>
+        <td align="right">Nama :</td>
         <td><input type="text" class="w-75 my-2 mx-2" name="nama" required></td>
-        <td>Time Management (40%) :</td>
+        <td align="right">Time Management (40%) :</td>
         <td><input type="number" class="w-75 my-2 mx-2" name="time-management" min="0" max="100" required></td>
       </tr>
       <tr>
-        <td>Status Kerja :</td>
+        <td align="right">Status Kerja :</td>
         <td><select name="status-kerja" class="w-75 my-2 mx-2" required>
             <option value="" selected disabled hidden>---Pilih---</option>
             <option value="KaryawanTetap">Karyawan Tetap</option>
             <option value="KaryawanTidakTetap">Karyawan Tidak Tetap</option>
           </select>
         </td>
-        <td>Total:</td>
+        <td align="right">Total :</td>
         <td><input type="number" class="w-75 my-2 mx-2" name="total" readonly></td>
       </tr>
       <tr>
-        <td>Posisi :</td>
+        <td align="right">Posisi :</td>
         <td><input type="text" class="w-75 my-2 mx-2" name="posisi" required></td>
-        <td>Grade:</td>
+        <td align="right">Grade :</td>
         <td><input type="text" class="w-75 my-2 mx-2" name="grade" readonly></td>
       </tr>
 
