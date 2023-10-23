@@ -1,14 +1,15 @@
 * {
-  padding: 0!important;
-  margin: 0!important;
+  padding: 0 !important;
+  margin: 0 !important;
 }
 
-html, body{
+html,
+body {
   height: 100%;
-  background-image: linear-gradient(to bottom, rgba(87,159,236,100%), rgba(207,230,255,100%));
+  background-image: linear-gradient(to bottom, rgba(87, 159, 236, 100%), rgba(207, 230, 255, 100%));
 }
 
-.current-page-nav{
+.current-page-nav {
   color: rgb(59, 0, 255);
   font-style: normal;
   font-weight: bold;
@@ -17,21 +18,21 @@ html, body{
   text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
-footer a{
+footer a {
   text-decoration: none !important;
 }
 
-footer hr{
+footer hr {
   width: 80%;
   border: 2px solid white;
   background-color: white;
 }
 
-.custom-img{
+.custom-img {
   width: 100px;
 }
 
-.footer-custom-img{
+.footer-custom-img {
   width: 300px;
 }
 
@@ -66,3 +67,4 @@ footer hr{
 .icon li a:hover {
   background: lightblue;
 }
+
