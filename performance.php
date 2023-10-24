@@ -82,8 +82,8 @@
     </table>
   </form>
 
-  <!-- footer -->
-  <footer class="py-3 my-4 bg-black container-fluid text-light">
+    <!-- footer -->
+    <footer class="py-3 my-4 bg-black container-fluid text-light">
     <div class="row pt-3">
       <ul class="nav justify-content-center pb-2">
         <li class="nav-item mx-3">
@@ -99,10 +99,31 @@
       <div class="col pe-5 me-5">
         <img src="image/logo_white.png" alt="logo" class="img-responsive mx-auto d-block footer-custom-img">
       </div>
-      <div class="col pe-5 me-5 d-flex flex-column justify-content-center">
+      <div class="col pe-5 me-5 d-flex flex-column justify-content-center ">
+        <div class="row">
+
+          <table>
+            <tr>
+              <td>
+                <img src="icon/marker.png" alt="location"
+                  style="width: 20px; filter: invert(100%) sepia(0%) saturate(7482%) hue-rotate(72deg) brightness(99%) contrast(99%);">   Company Name
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <img src="icon/phone-call.png" alt="Phone Number"
+                  style="width: 20px; filter: invert(100%) sepia(0%) saturate(7482%) hue-rotate(72deg) brightness(99%) contrast(99%);">  (123)
+                456-7890
+              </td>
+              <td>
+                <img src="icon/fax.png" alt="Fax" style="width: 20px; filter: invert(100%) sepia(0%) saturate(7482%) hue-rotate(72deg) brightness(99%) contrast(99%);">   #(123) 456-7890
+              </td>
+            </tr>
+          </table>
+        </div>
         ISI
         <br />
-        <div class="row">
+        <div class="row bg-black">
           <ul class="icon">
             <li><a href="#"><img src="icon/instagram.png" alt="ig"></a></li>
             <li><a href="#"><img src="icon/facebook.png" alt="fb"></a></li>

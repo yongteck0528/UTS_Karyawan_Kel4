@@ -73,28 +73,24 @@
       <div class="col pe-5 me-5 d-flex flex-column justify-content-center ">
         <div class="row">
 
-          <table border="1">
+          <table>
             <tr>
               <td>
-                <img src="icon/marker.png" alt="" style="width: 20px; background-color: white;"> Company Name
+                <img src="icon/marker.png" alt="location"
+                  style="width: 20px; filter: invert(100%) sepia(0%) saturate(7482%) hue-rotate(72deg) brightness(99%) contrast(99%);">   Company Name
               </td>
             </tr>
             <tr>
               <td>
-                <img src="icon/phone-call.png" alt="ig" style="width: 20px">(123) 456-7890
+                <img src="icon/phone-call.png" alt="Phone Number"
+                  style="width: 20px; filter: invert(100%) sepia(0%) saturate(7482%) hue-rotate(72deg) brightness(99%) contrast(99%);">  (123)
+                456-7890
               </td>
               <td>
-                <img src="icon/fax.png" alt="ig" style="width: 20px">(123) 456-7890
+                <img src="icon/fax.png" alt="Fax" style="width: 20px; filter: invert(100%) sepia(0%) saturate(7482%) hue-rotate(72deg) brightness(99%) contrast(99%);">   #(123) 456-7890
               </td>
             </tr>
-
           </table>
-
-
-
-
-
-
         </div>
         ISI
         <br />
@@ -118,5 +114,4 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-..."
     crossorigin="anonymous"></script>
 </body>
-
 </html>
