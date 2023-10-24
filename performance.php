@@ -36,11 +36,119 @@
     </div>
   </nav>
 
+  <br><br><br><br>
+  <!-- FORM -->
+  <div class="container mx-auto">
+    <form action="" method="POST" enctype="multipart/form-data">
+
+      <div class="row">
+        <div class="col-5" style="border: 1px solid red;">
+          <!-- Foto -->
+
+          <label for="formFile"> Foto :</label>
+          <input type="file" accept=".png, .jpg, .jpeg, .jfif, .gif" name="foto" required />
+
+
+        </div>
+        <div class="col-6" style="border: 1px solid red;"></div>
+        <div class="col-1" style="border: 1px solid red;">
+          <!-- 3 Buttons -->
+          <div class="row">
+            <div class="col">
+              <button type="button" class="btn btn-success w-100">Simpan</button>
+            </div>
+            <div class="row">
+              <div class="col">
+                <button type="button" class="btn btn-danger w-100">Clear</button>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col">
+                <button type="button" class="btn btn-secondary w-100">Cancel</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-5" style="border: 1px solid red;">
+          <!-- Tanggal Penilaian -->
+          <div class="row">
+            <div class="col-3">
+              <label for="tanggalPenilaian" class="form-label text-capitalize">Tanggal Penilaian :</label>
+            </div>
+            <div class="col-9">
+              <input type="date" class="w-75" name="responsibility" min="0" max="100" required>
+            </div>
+          </div>
+        </div>
+
+        <div class="col" style="border: 1px solid red;">
+          <!-- Responsibility -->
+
+          <div class="row">
+            <div class="col-3">
+              <label for="tanggalPenilaian">Responsibility (30%) :</label>
+            </div>
+            <div class="col-9">
+              <input type="number" class="w-25" name="responsibility" min="0" max="100" required>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- NIK -->
+      <div class="row">
+        <div class="col-5" style="border: 1px solid red;">
+          <div class="row">
+            <div class="col-3">
+              <label for="tanggalPenilaian">NIK:</label>
+            </div>
+            <div class="col-9">
+              <input type="number" class="w-75" name="responsibility" min="0" max="100" required>
+            </div>
+          </div>
+        </div>
+
+        <div class="col" style="border: 1px solid red;">
+          teamwork (30%) :
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-5" style="border: 1px solid red;">
+          Nama:
+        </div>
+        <div class="col" style="border: 1px solid red;">
+          Time Management (40%) :
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-5" style="border: 1px solid red;">
+          Status Kerja:
+        </div>
+        <div class="col" style="border: 1px solid red;">
+          Total:
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-5" style="border: 1px solid red;">
+          posisi:
+        </div>
+        <div class="col" style="border: 1px solid red;">
+          Grade:
+        </div>
+      </div>
+  </div>
+
+
+
+
+  <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+  <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
   <!-- form -->
   <form action="" method="POST" enctype="multipart/form-data">
     <table cellspacing="5" class="mx-auto my-4">
       <tr>
-        <td align="right">Foto    :</td>
+        <td align="right">Foto :</td>
         <td colspan="3"><input type="file" accept=".png, .jpg, .jpeg, .jfif, .gif" name="foto" required /></td>
       </tr>
       <tr>
@@ -82,8 +190,8 @@
     </table>
   </form>
 
-    <!-- footer -->
-    <footer class="py-3 my-4 bg-black container-fluid text-light">
+  <!-- footer -->
+  <footer class="py-3 my-4 bg-black container-fluid text-light">
     <div class="row pt-3">
       <ul class="nav justify-content-center pb-2">
         <li class="nav-item mx-3">
@@ -106,17 +214,21 @@
             <tr>
               <td>
                 <img src="icon/marker.png" alt="location"
-                  style="width: 20px; filter: invert(100%) sepia(0%) saturate(7482%) hue-rotate(72deg) brightness(99%) contrast(99%);">   Company Name
+                  style="width: 20px; filter: invert(100%) sepia(0%) saturate(7482%) hue-rotate(72deg) brightness(99%) contrast(99%);">
+                Company Name
               </td>
             </tr>
             <tr>
               <td>
                 <img src="icon/phone-call.png" alt="Phone Number"
-                  style="width: 20px; filter: invert(100%) sepia(0%) saturate(7482%) hue-rotate(72deg) brightness(99%) contrast(99%);">  (123)
+                  style="width: 20px; filter: invert(100%) sepia(0%) saturate(7482%) hue-rotate(72deg) brightness(99%) contrast(99%);">
+                (123)
                 456-7890
               </td>
               <td>
-                <img src="icon/fax.png" alt="Fax" style="width: 20px; filter: invert(100%) sepia(0%) saturate(7482%) hue-rotate(72deg) brightness(99%) contrast(99%);">   #(123) 456-7890
+                <img src="icon/fax.png" alt="Fax"
+                  style="width: 20px; filter: invert(100%) sepia(0%) saturate(7482%) hue-rotate(72deg) brightness(99%) contrast(99%);">
+                #(123) 456-7890
               </td>
             </tr>
           </table>
