@@ -36,11 +36,219 @@
     </div>
   </nav>
 
+  <!-- FORM Bootstrap -->
+  <!-- form-control, form-label, form-select, input-group, input-group-text -->
+
+  <section id="performance">
+    <div class="container mx-auto mt-5">
+      <form action="" method="POST" enctype="multipart/form-data">
+        <div class="row">
+          <div class="col-5">
+
+            <!-- Foto -->
+            <div class="row">
+              <div class="col-3">
+                <label for="file" class="form-label"> Foto :</label>
+              </div>
+              <div class="col-9">
+                <input id="file" type="file" class="form-control w-75" accept=".png, .jpg, .jpeg, .jfif, .gif" name="foto"
+                  required />
+                
+              </div>
+
+            </div>
+          </div>
+          <!-- SPACE KOSONG -->
+          <div class="col-6"></div>
+          <div class="col-1">
+            <!-- 3 Buttons -->
+            <div class="row">
+              <div class="col">
+                <button type="button" class="btn btn-success w-100">Simpan</button>
+              </div>
+              <div class="row">
+                <div class="col">
+                  <button type="button" class="btn btn-danger w-100">Clear</button>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col">
+                  <button type="button" class="btn btn-secondary w-100">Cancel</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-5">
+            <!-- Tanggal Penilaian -->
+            <div class="row">
+              <div class="col-3">
+                <label for="tanggalPenilaian" class="form-label text-capitalize">Tanggal Penilaian :</label>
+              </div>
+              <div class="col-9">
+                <input id="tanggalPenilaian" type="date" class="form-control w-75" name="responsibility" min="0"
+                  max="100">
+              </div>
+            </div>
+          </div>
+
+          <div class="col">
+            <!-- Responsibility -->
+            <div class="row">
+              <div class="col-3">
+                <div class="mb-4 input-group">
+                  <label for="responsibility" class="form-label">Responsibility (30%) :</label>
+                </div>
+              </div>
+              <div class="col-9 w-50">
+                <div class="mb-4 input-group">
+                  <input id="responsibility" type="number" class="form-control w-25" name="responsibility" min="0"
+                    max="100" required>
+                  <span class="input-group-text">
+                    <i class="bi bi-person-fill p-1">%</i>
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- NIK -->
+        <div class="row">
+          <div class="col-5">
+            <div class="row">
+              <div class="col-3">
+                <label for="nik" class="form-label">NIK:</label>
+              </div>
+              <div class="col-9">
+                <input id="nik" type="text" class="form-control w-75" name="responsibility" min="0" max="100" required>
+              </div>
+            </div>
+          </div>
+          <!-- teamwork -->
+          <div class="col">
+            <div class="row">
+              <div class="col-3">
+                <div class="mb-4 input-group">
+                  <label for="teamwork" class="form-label">Teamwork (30%) :</label>
+                </div>
+              </div>
+              <div class="col-9 w-50">
+                <div class="mb-4 input-group">
+                  <input id="teamwork" type="number" class="form-control w-25" name="teamwork" min="0" max="100"
+                    required>
+                  <span class="input-group-text">
+                    <i class="bi bi-person-fill p-1">%</i>
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <!-- NAMA -->
+          <div class="col-5">
+            <div class="row">
+              <div class="col-3">
+                <label for="nama" class="form-label">Nama:</label>
+              </div>
+              <div class="col-9">
+                <input id="nama" type="text" class="form-control w-75" name="responsibility" min="0" max="100" required>
+              </div>
+            </div>
+          </div>
+          <!-- Time Management -->
+          <div class="col">
+            <div class="row">
+              <div class="col-3">
+                <div class="mb-4 input-group">
+                  <label for="timeManagement" class="form-label">Time Management (40%) :</label>
+                </div>
+              </div>
+              <div class="col-9 w-50">
+                <div class="mb-4 input-group">
+                  <input id="timeManagement" type="number" class="form-control w-25" name="teamManagement" min="0"
+                    max="100" required>
+                  <span class="input-group-text">
+                    <i class="bi bi-person-fill p-1">%</i>
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <!-- Status Kerja -->
+          <div class="col-5">
+            <div class="row">
+              <div class="col-3">
+                <label for="statusKerja" class="form-label">Status Kerja :</label>
+              </div>
+              <div class="col-9">
+                <select id="statusKerja" class="form-select w-75">
+                  <option value="tetap" selected> ---Pilih---</option>
+                  <option value="tetap"> Karyawan Tetap</option>
+                  <option value="tidakTetap"> Karyawan Tidak Tetap</option>
+                </select>
+              </div>
+            </div>
+
+
+          </div>
+          <div class="col">
+            <!-- TOTAL -->
+            <div class="row">
+              <div class="col-3">
+                <div class="mb-4 input-group">
+                  <label for="total" class="form-label">Total:</label>
+                </div>
+              </div>
+              <div class="col-9 w-50">
+                <input id="total" type="text" class="form-control w-100" name="total" min="0" max="100" readonly>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-5">
+            <div class="row">
+              <div class="col-3">
+                <label for="posisi" class="form-label">Posisi:</label>
+              </div>
+              <div class="col-9">
+                <input id="posisi" type="text" class="form-control w-75" name="posisi" min="0" max="100" required>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <!-- TOTAL -->
+            <div class="row">
+              <div class="col-3">
+                <div class="mb-4 input-group">
+                  <label for="grade" class="form-label">Grade:</label>
+                </div>
+              </div>
+              <div class="col-9 w-50">
+                <input id="grade" type="text" class="form-control w-100" name="grade" min="0" max="100" readonly>
+              </div>
+            </div>
+          </div>
+        </div>
+    </div>
+
+  </section>
+
+
+
+
+  <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+  <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+
   <!-- form -->
   <form action="" method="POST" enctype="multipart/form-data">
     <table cellspacing="5" class="mx-auto my-4">
       <tr>
-        <td align="right">Foto    :</td>
+        <td align="right">Foto :</td>
         <td colspan="3"><input type="file" accept=".png, .jpg, .jpeg, .jfif, .gif" name="foto" required /></td>
       </tr>
       <tr>
@@ -82,7 +290,7 @@
     </table>
   </form>
 
-    <!-- footer -->
+  <!-- footer -->
   <footer class="pt-3 mt-4 bg-black container-fluid text-light">
     <div class="row pt-3">
       <ul class="nav justify-content-center pb-2">
@@ -106,23 +314,27 @@
             <tr>
               <td class="py-3">
                 <img src="icon/marker.png" alt="location"
-                  style="width: 20px; filter: invert(100%) sepia(0%) saturate(7482%) hue-rotate(72deg) brightness(99%) contrast(99%);">   Company Name
+                  style="width: 20px; filter: invert(100%) sepia(0%) saturate(7482%) hue-rotate(72deg) brightness(99%) contrast(99%);">
+                Company Name
               </td>
             </tr>
             <tr>
               <td class="pb-3">
                 <img src="icon/phone-call.png" alt="Phone Number"
-                  style="width: 20px; filter: invert(100%) sepia(0%) saturate(7482%) hue-rotate(72deg) brightness(99%) contrast(99%);">  (123)
+                  style="width: 20px; filter: invert(100%) sepia(0%) saturate(7482%) hue-rotate(72deg) brightness(99%) contrast(99%);">
+                (123)
                 456-7890
               </td>
-            <tr >
-            <td class="pb-3">
-                <img src="icon/fax.png" alt="Fax" style="width: 20px; filter: invert(100%) sepia(0%) saturate(7482%) hue-rotate(72deg) brightness(99%) contrast(99%);">   #(123) 456-7890
+            <tr>
+              <td class="pb-3">
+                <img src="icon/fax.png" alt="Fax"
+                  style="width: 20px; filter: invert(100%) sepia(0%) saturate(7482%) hue-rotate(72deg) brightness(99%) contrast(99%);">
+                #(123) 456-7890
               </td>
             </tr>
           </table>
         </div>
-      
+
         <br />
         <div class="row bg-black">
           <ul class="icon">

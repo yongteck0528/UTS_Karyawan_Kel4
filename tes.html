@@ -12,5 +12,112 @@
   <img src="icon/marker.png" alt="" style="width: 200px;">
   <img src="icon/marker.png" alt="" style="width: 200px;">
 
+
+
+
+<!-- testing form bootstrap -->
+
+<section class="formtest mt-5">
+  <div class="containter-lg">
+    <div class="text-center">
+      <h2>Get in Touch</h2>
+      <p class="lead">Questions to ask? Fill out the form to contact me directly...</p>
+    </div>
+    <div class="row justify-content-center my-5">
+      <!-- form -->
+      <div class="col-lg-6">
+        <form>
+          <label for="email" class="form-label">Email address:</label>
+
+          <div class="mb-4 input-group">
+            <input type="email" class="form-control" id="email" placeholder="e.g.mario@gmail.com">
+            <span class="input-group-text">
+              <i class="bi bi-person-fill p-1">%</i>
+            </span>
+          </div>
+
+          <label for="name" class="form-label">Name:</label>
+          <input type="text" class="form-control" id="name" placeholder="e.g Mario">
+
+          <label for="subjects" class="form-label"> What is your question about?</label>
+          <select id="subject" class="form-select">
+            <option value="pricing" selected> Pricing query</option>
+            <option value="pricing"> Contact query</option>
+            <option value="pricing"> Other query</option>
+          </select>
+
+
+          <div class="form-floating mb-4 mt-5">
+            <textarea name="" id="query" class="form-control" style=" height: 140px;"></textarea>
+            <label for="query">Your Query...</label>
+          </div>
+
+          <div class="mb-4 text-center">
+            <button type="submit" class="btn btn-secondary">Submit</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- form html -->
+
+<!-- form -->
+<form action="" method="POST" enctype="multipart/form-data">
+  <table cellspacing="5" class="mx-auto my-4">
+    <tr>
+      <td align="right">Foto :</td>
+      <td colspan="3"><input type="file" accept=".png, .jpg, .jpeg, .jfif, .gif" name="foto" required /></td>
+    </tr>
+    <tr>
+      <td align="right">Tanggal Penilaian :</td>
+      <td><input type="date" class="w-75 my-2 mx-2" name="tglPenilaian" required></td>
+      <td align="right">Responsibility (30%) :</td>
+      <td><input type="number" class="w-75 my-2 mx-2" name="responsibility" min="0" max="100" required></td>
+    </tr>
+    <tr>
+      <td align="right">NIK :</td>
+      <td><input type="text" class="w-75 my-2 mx-2" name="NIK" required></td>
+      <td align="right">Teamwork (30%) :</td>
+      <td><input type="number" class="w-75 my-2 mx-2" name="teamwork" min="0" max="100" required></td>
+    </tr>
+    <tr>
+      <td align="right">Nama :</td>
+      <td><input type="text" class="w-75 my-2 mx-2" name="nama" required></td>
+      <td align="right">Time Management (40%) :</td>
+      <td><input type="number" class="w-75 my-2 mx-2" name="time-management" min="0" max="100" required></td>
+    </tr>
+    <tr>
+      <td align="right">Status Kerja :</td>
+      <td><select name="status-kerja" class="w-75 my-2 mx-2" required>
+          <option value="" selected disabled hidden>---Pilih---</option>
+          <option value="KaryawanTetap">Karyawan Tetap</option>
+          <option value="KaryawanTidakTetap">Karyawan Tidak Tetap</option>
+        </select>
+      </td>
+      <td align="right">Total :</td>
+      <td><input type="number" class="w-75 my-2 mx-2" name="total" readonly></td>
+    </tr>
+    <tr>
+      <td align="right">Posisi :</td>
+      <td><input type="text" class="w-75 my-2 mx-2" name="posisi" required></td>
+      <td align="right">Grade :</td>
+      <td><input type="text" class="w-75 my-2 mx-2" name="grade" readonly></td>
+    </tr>
+
+  </table>
+</form>
+
+
+
+
+
+
+
+
+
+
+
 </body>
 </html>
