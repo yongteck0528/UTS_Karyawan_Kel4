@@ -40,22 +40,30 @@
   <!-- form-control, form-label, form-select, input-group, input-group-text -->
 
   <section id="performance">
-    <div class="container mx-auto mt-5">
+    <div class="container mx-auto mt-5 ">
       <form action="" method="POST" enctype="multipart/form-data">
-        <div class="row">
+        <div class="row pb-5">
           <div class="col-5">
-
             <!-- Foto -->
             <div class="row">
+
               <div class="col-3">
-                <label for="file" class="form-label"> Foto :</label>
-              </div>
-              <div class="col-9">
-                <input id="file" type="file" class="form-control w-75" accept=".png, .jpg, .jpeg, .jfif, .gif" name="foto"
-                  required />
-                
+                <div class="row">
+                  <div class="col-11">
+                    <label for="file" class="form-label">
+                      <h5>File</h1>
+                    </label>
+                  </div>
+                  <div class="col">
+                    <div class="col-1 text-right">:</div>
+                  </div>
+                </div>
               </div>
 
+              <div class="col-8">
+                <input id="file" type="file" class="form-control w-75" accept=".png, .jpg, .jpeg, .jfif, .gif"
+                  name="foto" required />
+              </div>
             </div>
           </div>
           <!-- SPACE KOSONG -->
@@ -79,6 +87,7 @@
             </div>
           </div>
         </div>
+
         <div class="row">
           <div class="col-5">
             <!-- Tanggal Penilaian -->
@@ -97,14 +106,21 @@
             <!-- Responsibility -->
             <div class="row">
               <div class="col-3">
-                <div class="mb-4 input-group">
-                  <label for="responsibility" class="form-label">Responsibility (30%) :</label>
+                <div class="row">
+                  <div class="col-11">
+                    <div class="mb-4 input-group">
+                      <label for="responsibility" class="form-label">Responsibility (30%)</label>
+                    </div>
+                  </div>
+                  <div class="col">
+                    :
+                  </div>
                 </div>
               </div>
               <div class="col-9 w-50">
                 <div class="mb-4 input-group">
                   <input id="responsibility" type="number" class="form-control w-25" name="responsibility" min="0"
-                    max="100" required>
+                    max="100" placeholder="   0-100" required >
                   <span class="input-group-text">
                     <i class="bi bi-person-fill p-1">%</i>
                   </span>
@@ -118,7 +134,14 @@
           <div class="col-5">
             <div class="row">
               <div class="col-3">
-                <label for="nik" class="form-label">NIK:</label>
+                <div class="row">
+                  <div class="col-11">
+                    <label for="nik" class="form-label">NIK</label>
+                  </div>
+                  <div class="col">
+                    :
+                  </div>
+                </div>
               </div>
               <div class="col-9">
                 <input id="nik" type="text" class="form-control w-75" name="responsibility" min="0" max="100" required>
@@ -129,13 +152,20 @@
           <div class="col">
             <div class="row">
               <div class="col-3">
-                <div class="mb-4 input-group">
-                  <label for="teamwork" class="form-label">Teamwork (30%) :</label>
+                <div class="row">
+                  <div class="col-11">
+                    <div class="mb-4 input-group">
+                      <label for="teamwork" class="form-label">Teamwork (30%)</label>
+                    </div>
+                  </div>
+                  <div class="col">
+                    :
+                  </div>
                 </div>
               </div>
               <div class="col-9 w-50">
                 <div class="mb-4 input-group">
-                  <input id="teamwork" type="number" class="form-control w-25" name="teamwork" min="0" max="100"
+                  <input id="teamwork" type="number" class="form-control w-25" name="teamwork" min="0" max="100" placeholder="   0-100"
                     required>
                   <span class="input-group-text">
                     <i class="bi bi-person-fill p-1">%</i>
@@ -150,7 +180,14 @@
           <div class="col-5">
             <div class="row">
               <div class="col-3">
-                <label for="nama" class="form-label">Nama:</label>
+                <div class="row">
+                  <div class="col-11">
+                    <label for="nama" class="form-label">Nama</label>
+                  </div>
+                  <div class="col">
+                    :
+                  </div>
+                </div>
               </div>
               <div class="col-9">
                 <input id="nama" type="text" class="form-control w-75" name="responsibility" min="0" max="100" required>
@@ -161,13 +198,20 @@
           <div class="col">
             <div class="row">
               <div class="col-3">
-                <div class="mb-4 input-group">
-                  <label for="timeManagement" class="form-label">Time Management (40%) :</label>
+                <div class="row">
+                  <div class="col-11">
+                    <div class="mb-4 input-group">
+                      <label for="timeManagement" class="form-label">Time Management(40%)</label>
+                    </div>
+                  </div>
+                  <div class="col">
+                    :
+                  </div>
                 </div>
               </div>
               <div class="col-9 w-50">
                 <div class="mb-4 input-group">
-                  <input id="timeManagement" type="number" class="form-control w-25" name="teamManagement" min="0"
+                  <input id="timeManagement" type="number" class="form-control w-25" name="teamManagement" min="0" placeholder="   0-100"
                     max="100" required>
                   <span class="input-group-text">
                     <i class="bi bi-person-fill p-1">%</i>
@@ -182,25 +226,37 @@
           <div class="col-5">
             <div class="row">
               <div class="col-3">
-                <label for="statusKerja" class="form-label">Status Kerja :</label>
+                <div class="row">
+                  <div class="col-11">
+                    <label for="statusKerja" class="form-label">Status Kerja</label>
+                  </div>
+                  <div class="col">
+                    :
+                  </div>
+                </div>
               </div>
               <div class="col-9">
                 <select id="statusKerja" class="form-select w-75">
-                  <option value="tetap" selected> ---Pilih---</option>
+                  <option value="tetap" selected class="text-center"> ---Pilih---</option>
                   <option value="tetap"> Karyawan Tetap</option>
                   <option value="tidakTetap"> Karyawan Tidak Tetap</option>
                 </select>
               </div>
             </div>
-
-
           </div>
           <div class="col">
             <!-- TOTAL -->
             <div class="row">
               <div class="col-3">
-                <div class="mb-4 input-group">
-                  <label for="total" class="form-label">Total:</label>
+                <div class="row">
+                  <div class="col-11">
+                    <div class="mb-4 input-group">
+                      <label for="total" class="form-label">Total</label>
+                    </div>
+                  </div>
+                  <div class="col">
+                    :
+                  </div>
                 </div>
               </div>
               <div class="col-9 w-50">
@@ -213,7 +269,14 @@
           <div class="col-5">
             <div class="row">
               <div class="col-3">
-                <label for="posisi" class="form-label">Posisi:</label>
+                <div class="row">
+                  <div class="col-11">
+                    <label for="posisi" class="form-label">Posisi</label>
+                  </div>
+                  <div class="col">
+                    :
+                  </div>
+                </div>
               </div>
               <div class="col-9">
                 <input id="posisi" type="text" class="form-control w-75" name="posisi" min="0" max="100" required>
@@ -222,10 +285,17 @@
           </div>
           <div class="col">
             <!-- TOTAL -->
-            <div class="row">
+            <div class="row mb-5">
               <div class="col-3">
-                <div class="mb-4 input-group">
-                  <label for="grade" class="form-label">Grade:</label>
+                <div class="row">
+                  <div class="col-11">
+                    <div class="mb-4 input-group">
+                      <label for="grade" class="form-label">Grade</label>
+                    </div>
+                  </div>
+                  <div class="col">
+                    :
+                  </div>
                 </div>
               </div>
               <div class="col-9 w-50">
@@ -237,59 +307,6 @@
     </div>
 
   </section>
-
-
-
-
-  <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-  <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-
-  <!-- form -->
-  <form action="" method="POST" enctype="multipart/form-data">
-    <table cellspacing="5" class="mx-auto my-4">
-      <tr>
-        <td align="right">Foto :</td>
-        <td colspan="3"><input type="file" accept=".png, .jpg, .jpeg, .jfif, .gif" name="foto" required /></td>
-      </tr>
-      <tr>
-        <td align="right">Tanggal Penilaian :</td>
-        <td><input type="date" class="w-75 my-2 mx-2" name="tglPenilaian" required></td>
-        <td align="right">Responsibility (30%) :</td>
-        <td><input type="number" class="w-75 my-2 mx-2" name="responsibility" min="0" max="100" required></td>
-      </tr>
-      <tr>
-        <td align="right">NIK :</td>
-        <td><input type="text" class="w-75 my-2 mx-2" name="NIK" required></td>
-        <td align="right">Teamwork (30%) :</td>
-        <td><input type="number" class="w-75 my-2 mx-2" name="teamwork" min="0" max="100" required></td>
-      </tr>
-      <tr>
-        <td align="right">Nama :</td>
-        <td><input type="text" class="w-75 my-2 mx-2" name="nama" required></td>
-        <td align="right">Time Management (40%) :</td>
-        <td><input type="number" class="w-75 my-2 mx-2" name="time-management" min="0" max="100" required></td>
-      </tr>
-      <tr>
-        <td align="right">Status Kerja :</td>
-        <td><select name="status-kerja" class="w-75 my-2 mx-2" required>
-            <option value="" selected disabled hidden>---Pilih---</option>
-            <option value="KaryawanTetap">Karyawan Tetap</option>
-            <option value="KaryawanTidakTetap">Karyawan Tidak Tetap</option>
-          </select>
-        </td>
-        <td align="right">Total :</td>
-        <td><input type="number" class="w-75 my-2 mx-2" name="total" readonly></td>
-      </tr>
-      <tr>
-        <td align="right">Posisi :</td>
-        <td><input type="text" class="w-75 my-2 mx-2" name="posisi" required></td>
-        <td align="right">Grade :</td>
-        <td><input type="text" class="w-75 my-2 mx-2" name="grade" readonly></td>
-      </tr>
-
-    </table>
-  </form>
-
   <!-- footer -->
   <footer class="pt-3 mt-4 bg-black container-fluid text-light">
     <div class="row pt-3">
