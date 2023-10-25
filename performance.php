@@ -9,6 +9,7 @@
     integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 
   <title>Performance</title>
+  <script src="totalgrade.js"></script>
 </head>
 
 <body>
@@ -29,6 +30,9 @@
           </li>
           <li class="nav-item">
             <a class="nav-link mx-3 text-primary current-page-nav" href="performance.php">PERFORMANCE</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link mx-3" href="index.php">LOG OUT</a>
           </li>
 
         </ul>
@@ -73,11 +77,11 @@
             <div class="row">
               <div class="col">
                 <!-- <button type="submit" class="btn btn-success w-100" >Simpan</button> -->
-                <input type="submit" value="submit" class ="btn btn-success w-100">
+                <input type="submit" value="Submit" class="btn btn-success w-100">
               </div>
               <div class="row">
                 <div class="col">
-                  <button type="reset" class="btn btn-danger w-100">Clear</button>
+                  <input type="reset" value="Clear" class="btn btn-danger w-100">
                 </div>
               </div>
               <div class="row">
@@ -121,7 +125,7 @@
               <div class="col-9 w-50">
                 <div class="mb-4 input-group">
                   <input id="responsibility" type="number" class="form-control w-25" name="responsibility" min="0"
-                    max="100" placeholder="   0-100" required >
+                    max="100" placeholder="   0-100" onfocus="mulaiHitung();" onblur="stopHitung();" required>
                   <span class="input-group-text">
                     <i class="bi bi-person-fill p-1">%</i>
                   </span>
@@ -166,8 +170,8 @@
               </div>
               <div class="col-9 w-50">
                 <div class="mb-4 input-group">
-                  <input id="teamwork" type="number" class="form-control w-25" name="teamwork" min="0" max="100" placeholder="   0-100"
-                    required>
+                  <input id="teamwork" type="number" class="form-control w-25" name="teamwork" min="0" max="100"
+                    placeholder="   0-100" onfocus="mulaiHitung();" onblur="stopHitung();" required>
                   <span class="input-group-text">
                     <i class="bi bi-person-fill p-1">%</i>
                   </span>
@@ -212,8 +216,8 @@
               </div>
               <div class="col-9 w-50">
                 <div class="mb-4 input-group">
-                  <input id="timeManagement" type="number" class="form-control w-25" name="timeManagement" min="0" placeholder="   0-100"
-                    max="100" required>
+                  <input id="timeManagement" type="number" class="form-control w-25" name="timeManagement" min="0"
+                    placeholder="   0-100" max="100" onfocus="mulaiHitung();" onblur="stopHitung();" required>
                   <span class="input-group-text">
                     <i class="bi bi-person-fill p-1">%</i>
                   </span>
@@ -261,7 +265,8 @@
                 </div>
               </div>
               <div class="col-9 w-50">
-                <input id="total" type="text" class="form-control w-100" name="total" min="0" max="100" readonly>
+                <input id="total" type="text" class="form-control w-100" name="total" min="0" max="100" value="0"
+                  readonly>
               </div>
             </div>
           </div>
@@ -301,7 +306,8 @@
                 </div>
               </div>
               <div class="col-9 w-50">
-                <input id="grade" type="text" class="form-control w-100" name="grade" min="0" max="100" readonly>
+                <input id="grade" type="text" class="form-control w-100" name="grade" min="0" max="100" value="-"
+                  readonly>
               </div>
             </div>
           </div>
@@ -373,6 +379,7 @@
   </footer>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-..."
     crossorigin="anonymous"></script>
+
 </body>
 
 </html>

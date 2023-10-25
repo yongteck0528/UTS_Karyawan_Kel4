@@ -38,7 +38,7 @@
                           autocomplete="off">
                         
                       </div>
-                      <a href="#" class="btn text-light mt-4">Submit</a>
+                      <a href="home.php" class="btn text-light mt-4">Submit</a>
                       <p class="mb-0 mt-4 text-center"><a href="#0" class="link">Forgot Your Password?</a></p>
 
                     </div>

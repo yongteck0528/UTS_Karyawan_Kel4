@@ -30,6 +30,9 @@
           <li class="nav-item">
             <a class="nav-link mx-3" href="performance.php">PERFORMANCE</a>
           </li>
+          <li class="nav-item">
+            <a class="nav-link mx-3" href="index.php">LOG OUT</a>
+          </li>
 
         </ul>
       </div>
