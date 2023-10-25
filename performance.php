@@ -41,7 +41,7 @@
 
   <section id="performance">
     <div class="container mx-auto mt-5 ">
-      <form action="" method="POST" enctype="multipart/form-data">
+      <form action="process-form-performance.php" method="POST" enctype="multipart/form-data">
         <div class="row pb-5">
           <div class="col-5">
             <!-- Foto -->
@@ -51,7 +51,7 @@
                 <div class="row">
                   <div class="col-11">
                     <label for="file" class="form-label">
-                      <h5>File</h1>
+                      File
                     </label>
                   </div>
                   <div class="col">
@@ -62,7 +62,7 @@
 
               <div class="col-8">
                 <input id="file" type="file" class="form-control w-75" accept=".png, .jpg, .jpeg, .jfif, .gif"
-                  name="foto" required />
+                  name="file" required />
               </div>
             </div>
           </div>
@@ -72,11 +72,12 @@
             <!-- 3 Buttons -->
             <div class="row">
               <div class="col">
-                <button type="button" class="btn btn-success w-100">Simpan</button>
+                <!-- <button type="submit" class="btn btn-success w-100" >Simpan</button> -->
+                <input type="submit" value="submit" class ="btn btn-success w-100">
               </div>
               <div class="row">
                 <div class="col">
-                  <button type="button" class="btn btn-danger w-100">Clear</button>
+                  <button type="reset" class="btn btn-danger w-100">Clear</button>
                 </div>
               </div>
               <div class="row">
@@ -96,7 +97,7 @@
                 <label for="tanggalPenilaian" class="form-label text-capitalize">Tanggal Penilaian :</label>
               </div>
               <div class="col-9">
-                <input id="tanggalPenilaian" type="date" class="form-control w-75" name="responsibility" min="0"
+                <input id="tanggalPenilaian" type="date" class="form-control w-75" name="tanggalPenilaian" min="0"
                   max="100">
               </div>
             </div>
@@ -144,7 +145,7 @@
                 </div>
               </div>
               <div class="col-9">
-                <input id="nik" type="text" class="form-control w-75" name="responsibility" min="0" max="100" required>
+                <input id="nik" type="text" class="form-control w-75" name="nik" min="0" max="100" required>
               </div>
             </div>
           </div>
@@ -190,7 +191,7 @@
                 </div>
               </div>
               <div class="col-9">
-                <input id="nama" type="text" class="form-control w-75" name="responsibility" min="0" max="100" required>
+                <input id="nama" type="text" class="form-control w-75" name="nama" min="0" max="100" required>
               </div>
             </div>
           </div>
@@ -211,7 +212,7 @@
               </div>
               <div class="col-9 w-50">
                 <div class="mb-4 input-group">
-                  <input id="timeManagement" type="number" class="form-control w-25" name="teamManagement" min="0" placeholder="   0-100"
+                  <input id="timeManagement" type="number" class="form-control w-25" name="timeManagement" min="0" placeholder="   0-100"
                     max="100" required>
                   <span class="input-group-text">
                     <i class="bi bi-person-fill p-1">%</i>
@@ -236,8 +237,8 @@
                 </div>
               </div>
               <div class="col-9">
-                <select id="statusKerja" class="form-select w-75">
-                  <option value="tetap" selected class="text-center"> ---Pilih---</option>
+                <select id="statusKerja" class="form-select w-75" name="statusKerja">
+                  <option value="" selected class="text-center"> ---Pilih---</option>
                   <option value="tetap"> Karyawan Tetap</option>
                   <option value="tidakTetap"> Karyawan Tidak Tetap</option>
                 </select>
@@ -265,6 +266,7 @@
             </div>
           </div>
         </div>
+        <!-- POSISI -->
         <div class="row">
           <div class="col-5">
             <div class="row">
@@ -284,7 +286,7 @@
             </div>
           </div>
           <div class="col">
-            <!-- TOTAL -->
+            <!-- GRADE -->
             <div class="row mb-5">
               <div class="col-3">
                 <div class="row">
