@@ -54,6 +54,5 @@ mysqli_stmt_bind_param(
 
 mysqli_stmt_execute($stmt);
 
-echo "The record has been saved";
 
 ?>

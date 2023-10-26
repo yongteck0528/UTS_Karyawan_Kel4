@@ -63,7 +63,7 @@ include_once("connection.php");
 
       <div class="container mx-auto mt-5 ">
       </div>
-      <form action="process-form-performance.php" method="POST" enctype="multipart/form-data">
+      <form method="POST" enctype="multipart/form-data" id="performanceForm">
         <div class="row pb-5">
           <div class="col-5">
             <!-- Foto -->
@@ -95,7 +95,7 @@ include_once("connection.php");
             <div class="row">
               <div class="col">
                 <!-- <button type="submit" class="btn btn-success w-100" >Simpan</button> -->
-                <input type="submit" value="Submit" class="btn btn-success w-100">
+                <input type="submit" value="Submit" class="btn btn-success w-100" id="submitBtn">
               </div>
               <div class="row">
                 <div class="col">
@@ -324,13 +324,32 @@ include_once("connection.php");
                 </div>
               </div>
               <div class="col-9 w-50">
-                <input id="grade" type="text" class="form-control w-100" name="grade" min="0" max="100" value="0"id ="grade"
-                  readonly>
+                <input id="grade" type="text" class="form-control w-100" name="grade" min="0" max="100" value="0"
+                  id="grade" readonly>
               </div>
             </div>
           </div>
         </div>
       </form>
+
+      <!-- <div id="result"></div> -->
+
+      <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+      <script>
+        $(document).ready(function () {
+          $("#submitBtn").click(function () {
+            var formData = $("#performanceForm").serialize();
+            $.ajax({
+              type: "POST",
+              url: "process-form-performance.php",
+              data: formData,
+              success: function (response) {
+                $("#result").html(response);
+              }
+            });
+          });
+        });
+      </script>
     </div>
 
   </section>
