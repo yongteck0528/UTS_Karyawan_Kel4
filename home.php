@@ -16,7 +16,7 @@
   <nav class="navbar navbar-expand-lg">
     <div class="container-fluid py-2 bg-body-tertiary">
       <a class="navbar-brand ps-5" href="#">
-        <img src="image/logo_black.png" alt="" class="img-responsive custom-img">
+        <img src="image/logo/HEalty.png" alt="" class="img-responsive custom-img">
       </a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
         aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -71,7 +71,7 @@
     <hr class="d-flex justify-content-center mx-auto">
     <div class="row px-5 mx-5">
       <div class="col ps-5 ms-5">
-        <img src="image/logo_white.png" alt="logo" class="img-responsive mx-auto d-block footer-custom-img">
+        <img src="image/logo/HEalty.png" alt="logo" class="img-responsive mx-auto d-block footer-custom-img">
       </div>
       <div class="col pe-5 me-5 d-flex flex-column justify-content-center ">
         <div class="row">

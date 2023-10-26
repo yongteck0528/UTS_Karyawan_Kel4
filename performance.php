@@ -315,6 +315,281 @@
     </div>
 
   </section>
+
+  <?php
+        $con = mysqli_connect("localhost","root","","karyawan_kel4") or die(mysqli_error());
+			
+        //Main
+        if (isset($_GET['aksi'])){
+            switch($_GET['aksi']){
+                case "view":
+                    view($con);
+                    break;
+                case "edit":
+                    edit($con);
+                    showtable($con);
+                    break;
+                case "hapus":
+                    hapus($con);
+                    break;
+                default:
+                    echo "<h3>Aksi <i>".$_GET['aksi']."</i> Belum Tersedia</h3>";
+                    showtable($con);
+            }
+        }else{
+            showtable($con);
+        }
+    
+          //Tampilkan data dari database
+          function showtable($con){
+            ?>
+                <table border="1" class = "table table-striped">
+                  <tr>
+                    <th>Tanggal</th>
+                    <th>NIK</th>
+                    <th>Nama</th>
+                    <th>Status Kerja</th>
+                    <th>Posisi</th>
+                    <th>Total</th>
+                    <th>Grade</th>
+                    <th>Aksi</th>
+                  </tr>
+        
+                  <?php 
+                    $sql = "SELECT * FROM performance";
+                    $result = mysqli_query($con,$sql) or die(mysqli_error($sql));
+                    if(mysqli_num_rows($result)>0){
+                      while($data = mysqli_fetch_array($result)){	
+                  ?>
+                        <tr>
+                          <td><?= $data['tgl_penilaian']; ?></td>
+                                            <td><?= $data['nik'];?></td>
+                          <td><?= $data['nama']; ?></td>
+                          <td><?= $data['status_kerja']; ?></td>
+                          <td><?= $data['position']; ?></td>
+                          <td><?= $data['total']; ?></td>
+                          <td><?= $data['grade']; ?></td>
+                          <td align="center"> 
+                                                <a href="performance.php?aksi=view&kd=<?= $data['nik']; ?>"><button type="button" class="btn btn-primary">View</button></a> |
+                            <a href="performance.php?aksi=edit&kd=<?= $data['nik']; ?>">Edit</a> |
+                            <a href="performance.php?aksi=hapus&kd=<?= $data['nik']; ?>" onclick="return confirm('Apakah yakin dihapus?')">Hapus</a>
+                          </td>
+                        </tr>
+                  <?php 
+                      } 
+                    }
+                    else{
+                  ?>
+                      <tr>
+                        <td colspan="8" align="center"><i>Data Belum Ada</i></td>
+                      </tr>
+                  <?php
+                    }
+                  ?>
+                </table>
+                        <?php
+                }
+                
+                //function hapus
+                function hapus($con){
+                if(isset($_GET['kd'])){
+                  $kd		= $_GET['kd'];
+                  $sql	=  "DELETE FROM performance WHERE nik='$kd'";
+                  $result = mysqli_query($con,$sql);					
+                  if($result){
+                    header('location: performance.php');
+                  }
+                }
+              }
+        
+                //function view
+                function view($con){
+                    $id 	= $_GET['kd'];
+                    $sql 	= "SELECT * FROM performance WHERE nik='$id'";
+                    $result = mysqli_query($con,$sql);
+                    while($data = mysqli_fetch_array($result)){
+                ?>
+                    <form action="" method="POST" enctype="multipart/form-data">
+                            <table border ="0" cellspacing="5">
+                                <tr>
+                                    <td>Foto </td>
+                                    <td>
+                                        <?= "<img src='image/".$data['foto']."' width='100' height='100' title='".$data['nama']."'/>"; ?>
+                                        <br>
+                                    </td>
+                                    <td colspan=3 valign="top" align="right">
+                                        <input type="button" value="Cancel" onclick="window.location.href='performance.php'">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Tanggal Penilaian</td>
+                                    <td>:<input type="date" name="tgl_penilaian" value="<?= $data['tgl_penilaian']; ?>" readonly/></td>
+                                    <td>Responsibility&nbsp<b>(30%)</b></td>
+                                    <td>:<input type="number" name="responsibility" step="1" min="1" max="100" onFocus="start_count();" onBlur="stop_count();" value ="<?= $data['responsibility'];?>" readonly></td>
+                                    <td>(0-100)</td>
+                                </tr>
+                                <tr>
+                                    <td>NIK</td>
+                                    <td>:<input type="number" name="nik" value="<?= $id ?>" readonly/></td>
+                                    <td>Teamwork&nbsp<b>(30%)</b></td>
+                                    <td>:<input type="number" name="teamwork" step="1" min="1" max="100" onFocus="start_count();" onBlur="stop_count();" value ="<?= $data['teamwork'];?>" readonly></td>
+                                    <td>(0-100)</td>
+                                </tr>
+                                <tr>
+                                    <td>Nama</td>
+                                    <td>:<input type="text" name="nama" placeholder="Nama" value="<?= $data['nama']; ?>" readonly/></td>
+                                    <td>Management Time&nbsp<b>(40%)</b></td>
+                                    <td>:<input type="number" name="management_time" step="1" min="1" max="100" onFocus="start_count();" onBlur="stop_count();" value ="<?= $data['management_time'];?>" readonly></td>
+                                    <td>(0-100)</td>
+                                </tr>
+                                <tr>
+                                    <td>Status Kerja</td>
+                                    <td>:
+                                        <select name="status_kerja" readonly>
+                                            <option value="tidak tetap" <?php if ($data['status_kerja'] == 'Tidak Tetap') echo 'selected'; ?>>Tidak Tetap</option>
+                                            <option value="tetap" <?php if ($data['status_kerja'] == 'Tetap') echo 'selected'; ?>>Tetap</option>
+                                        </select>
+                                    </td>
+                                    <td>Total</td>
+                                    <td>:<input type="number" name="total" value="<?= $data['total']; ?>" readonly><br/></td>
+                                </tr>
+                                <tr>
+                                    <td>Posisi</td>
+                                    <td>:<input type="text" name="position" placeholder="Posisi" value="<?= $data['position']; ?>" readonly/></td>
+                                    <td>Grade</td>
+                                    <td>:<input type="text" name="grade" value="<?= $data['grade']; ?>" readonly></td>
+                                </tr>
+                            </table>
+                        </form>
+                <?php
+                }
+            }
+        
+                
+                //Function edit
+                function edit($con){
+                    $id 	= $_GET['kd'];
+                    $sql 	= "SELECT * FROM performance WHERE nik='$id'";
+                    $result = mysqli_query($con,$sql);
+                    while($data = mysqli_fetch_array($result)){
+            ?>
+            <form name ="performance" action="" method="POST" enctype="multipart/form-data">
+              <table border ="0" cellspacing="5">
+                <tr>
+                            <td>Foto </td>
+                  <td>
+                                <input type="hidden" name="old" value="<?= $data['foto']; ?>"/>
+                                <?= "<img src='image/".$data['foto']."' width='100' height='100' title='".$data['nama']."'/>"; ?>
+                                <br>
+                                <input type="file" accept=".png, .jpg, .jpeg, .jfif, .gif" name="foto"/>
+                            </td>
+                            <td colspan=3 valign="top" align="right">
+                                <input type="submit" name="update" value="Update"/><br>
+                    <input type="reset" value="Clear" /><br>
+                    <input type="button" value="Cancel" onclick="window.location.href='performance.php'">
+                            </td>
+                </tr>
+                <tr>
+                            <td>Tanggal Penilaian</td>
+                            <td>:<input type="date" name="tgl_penilaian" value="<?= $data['tgl_penilaian']; ?>" required /></td>
+                            <td>Responsibility&nbsp<b>(30%)</b></td>
+                            <td>:<input type="number" name="responsibility" step="1" min="1" max="100" onFocus="start_count();" onBlur="stop_count();" value ="<?= $data['responsibility'];?>" required></td>
+                            <td>(0-100)</td>
+                </tr>
+                <tr>
+                            <td>NIK</td>
+                            <td>:<input type="number" name="nik" value="<?= $id ?>" readonly/></td>
+                            <td>Teamwork&nbsp<b>(30%)</b></td>
+                            <td>:<input type="number" name="teamwork" step="1" min="1" max="100" onFocus="start_count();" onBlur="stop_count();" value ="<?= $data['teamwork'];?>" required></td>
+                            <td>(0-100)</td>
+                        </tr>
+                <tr>
+                            <td>Nama</td>
+                            <td>:<input type="text" name="nama" placeholder="Nama" value="<?= $data['nama']; ?>" required /></td>
+                            <td>Management Time&nbsp<b>(40%)</b></td>
+                            <td>:<input type="number" name="management_time" step="1" min="1" max="100" onFocus="start_count();" onBlur="stop_count();" value ="<?= $data['management_time'];?>" required></td>
+                            <td>(0-100)</td>
+                        </tr>
+                <tr>
+                            <td>Status Kerja</td>
+                            <td>:
+                                <select name="status_kerja" required>
+                                    <option value="tidak tetap" <?php if ($data['status_kerja'] == 'Tidak Tetap') echo 'selected'; ?>>Tidak Tetap</option>
+                                    <option value="tetap" <?php if ($data['status_kerja'] == 'Tetap') echo 'selected'; ?>>Tetap</option>
+                                </select>
+                            </td>
+                            <td>Total</td>
+                            <td>:<input type="number" name="total" value="<?= $data['total']; ?>" readonly></td>
+                </tr>
+                <tr>
+                            <td>Posisi</td>
+                            <td>:<input type="text" name="position" placeholder="Posisi" value="<?= $data['position']; ?>" required/></td>
+                            <td>Grade</td>
+                            <td>:<input type="text" name="grade" value="<?= $data['grade']; ?>" readonly></td>
+                </tr>
+              </table>
+            </form>
+            <?php
+                    }
+                    
+                    if(isset($_POST['update'])){
+                            $id		            = $_POST['nik'];
+                            $old_foto	        = $_POST['old'];
+                  $new_foto           = $_FILES['foto']['tmp_name'];
+                  $nama		        = $_POST['nama'];
+                  $status_kerja		= $_POST['status_kerja'];
+                  $position	        = $_POST['position'];
+                  $tgl_penilaian	    = $_POST['tgl_penilaian'];
+                  $responsibility     = $_POST['responsibility'];
+                            $teamwork           = $_POST['teamwork'];
+                            $management_time    = $_POST['management_time'];
+                            $total              = $_POST['total'];
+                            $grade              = $_POST['grade'];
+                            
+                            if($new_foto==""){
+                                $sql 	= "UPDATE performance SET 
+                                            nama='$nama', 
+                                            status_kerja ='$status_kerja',
+                                            position ='$position',
+                                            tgl_penilaian ='$tgl_penilaian',
+                                            responsibility ='$responsibility',
+                                            teamwork ='$teamwork',
+                                            management_time ='$management_time',
+                                            total ='$total',
+                                            grade = '$grade'
+                                            WHERE nik='$id'";
+                                $result = mysqli_query($con,$sql);
+                            }
+                            else{
+                                unlink('image/'.$old_foto);
+                                $foto 	        = $_FILES['foto']['tmp_name'];
+                                $foto_name      = $nama.'-'.uniqid().'.png';
+                      move_uploaded_file($foto, 'image/'.$foto_name);
+        
+                                $sql 	= "UPDATE performance SET 
+                                            foto ='$foto_name',
+                                            nama='$nama', 
+                                            status_kerja ='$status_kerja',
+                                            position ='$position',
+                                            tgl_penilaian ='$tgl_penilaian',
+                                            responsibility ='$responsibility',
+                                            teamwork ='$teamwork',
+                                            management_time ='$management_time',
+                                            total ='$total',
+                                            grade = '$grade'
+                                            WHERE nik='$id'";
+                                $result = mysqli_query($con,$sql);
+                            }
+                            if($result) {
+                                header("location:performance.php");
+                            }
+                            else{
+                                echo "Query Error : ".mysqli_error($con);
+                            }
+                        }
+                    }
+            ?>
+        
   <!-- footer -->
   <footer class="pt-3 mt-4 bg-black container-fluid text-light">
     <div class="row pt-3">
