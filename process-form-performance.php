@@ -1,4 +1,5 @@
 <?php
+include_once('connection.php');
 
 $nik = (int) $_POST["nik"];
 $loc = $_FILES["file"]["tmp_name"];
@@ -14,26 +15,7 @@ $grade = $_POST["grade"];
 $filenm = $nama . '-' . uniqid() . '.png';
 move_uploaded_file($loc, 'image/' . $filenm);
 
-print_r($_POST);
-// var_dump($nik, $foto, $nama, $statusKerja, $posisi, $tanggalPenilaian, $responsibility, $timeManagement, $teamwork, $total, $grade);
 
-$host = "localhost";
-$dbname = "karyawan_kel4";
-$username = "root";
-$password = "";
-
-$con = mysqli_connect(
-    hostname: $host,
-    username: $username,
-    password: $password,
-    database: $dbname,
-);
-
-if (mysqli_connect_errno()) {
-    die("Connection Error:" . mysqli_connect_error());
-}
-
-echo "Connection successful.";
 
 $sql = "INSERT INTO performance (nik, 
                                 foto, 
@@ -54,21 +36,24 @@ if (!mysqli_stmt_prepare($stmt, $sql)) {
     die(mysqli_stmt_error($con));
 }
 
-mysqli_stmt_bind_param($stmt,"isssssdddds", 
-                        $nik, 
-                        $filenm, 
-                        $nama, 
-                        $statusKerja, 
-                        $posisi, 
-                        $tanggalPenilaian, 
-                        $responsibility, 
-                        $timeManagement, 
-                        $teamwork, 
-                        $total, 
-                        $grade);
+mysqli_stmt_bind_param(
+    $stmt,
+    "isssssdddds",
+    $nik,
+    $filenm,
+    $nama,
+    $statusKerja,
+    $posisi,
+    $tanggalPenilaian,
+    $responsibility,
+    $timeManagement,
+    $teamwork,
+    $total,
+    $grade
+);
 
 mysqli_stmt_execute($stmt);
 
-echo"The record has been saved";
+echo "The record has been saved";
 
 ?>

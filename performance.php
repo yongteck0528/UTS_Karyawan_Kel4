@@ -1,3 +1,9 @@
+<?php
+// initialize database connection
+include_once("connection.php");
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -43,8 +49,20 @@
   <!-- FORM Bootstrap -->
   <!-- form-control, form-label, form-select, input-group, input-group-text -->
 
+
+
   <section id="performance">
-    <div class="container mx-auto mt-5 ">
+    <div class="container card-header mx-auto">
+      <div class="row">
+        <div class="col">
+          <div class="card mt-5">
+            <div class="display-4 text-center mb-2">Performance</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="container mx-auto mt-5 ">
+      </div>
       <form action="process-form-performance.php" method="POST" enctype="multipart/form-data">
         <div class="row pb-5">
           <div class="col-5">
@@ -125,7 +143,7 @@
               <div class="col-9 w-50">
                 <div class="mb-4 input-group">
                   <input id="responsibility" type="number" class="form-control w-25" name="responsibility" min="0"
-                    max="100" placeholder="   0-100" onfocus="mulaiHitung();" onblur="stopHitung();" required>
+                    max="100" placeholder="  0-100" oninput="hitung();" required>
                   <span class="input-group-text">
                     <i class="bi bi-person-fill p-1">%</i>
                   </span>
@@ -171,7 +189,7 @@
               <div class="col-9 w-50">
                 <div class="mb-4 input-group">
                   <input id="teamwork" type="number" class="form-control w-25" name="teamwork" min="0" max="100"
-                    placeholder="   0-100" onfocus="mulaiHitung();" onblur="stopHitung();" required>
+                    placeholder="   0-100" oninput="hitung();" required>
                   <span class="input-group-text">
                     <i class="bi bi-person-fill p-1">%</i>
                   </span>
@@ -217,7 +235,7 @@
               <div class="col-9 w-50">
                 <div class="mb-4 input-group">
                   <input id="timeManagement" type="number" class="form-control w-25" name="timeManagement" min="0"
-                    placeholder="   0-100" max="100" onfocus="mulaiHitung();" onblur="stopHitung();" required>
+                    placeholder="   0-100" max="100" oninput="hitung();" required>
                   <span class="input-group-text">
                     <i class="bi bi-person-fill p-1">%</i>
                   </span>
@@ -265,7 +283,7 @@
                 </div>
               </div>
               <div class="col-9 w-50">
-                <input id="total" type="text" class="form-control w-100" name="total" min="0" max="100" value="0"
+                <input id="txtTotal" type="text" class="form-control w-100" name="total" min="0" max="100" value="0"
                   readonly>
               </div>
             </div>
@@ -306,24 +324,20 @@
                 </div>
               </div>
               <div class="col-9 w-50">
-                <input id="grade" type="text" class="form-control w-100" name="grade" min="0" max="100" value="-"
+                <input id="grade" type="text" class="form-control w-100" name="grade" min="0" max="100" value="0"id ="grade"
                   readonly>
               </div>
             </div>
           </div>
         </div>
+      </form>
     </div>
 
   </section>
 
-
-
-
-  TAMPIL TABLE
+  <!-- TABLE -->
 
   <?php
-  $con = mysqli_connect("localhost", "root", "", "karyawan_kel4") or die(mysqli_error());
-
   //Main
   if (isset($_GET['aksi'])) {
     switch ($_GET['aksi']) {
@@ -365,8 +379,8 @@
           </tr>
 
           <?php
-          $sql = "SELECT * FROM performance";
-          $result = mysqli_query($con, $sql) or die(mysqli_error($sql));
+          $query = "SELECT * FROM performance"; //SQL Query statement
+          $result = mysqli_query($con, $query); //
           if (mysqli_num_rows($result) > 0) {
             while ($data = mysqli_fetch_array($result)) {
               ?>
