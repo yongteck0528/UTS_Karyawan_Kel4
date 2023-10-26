@@ -283,7 +283,7 @@ include_once("connection.php");
                 </div>
               </div>
               <div class="col-9 w-50">
-                <input id="txtTotal" type="text" class="form-control w-100" name="total" min="0" max="100" value="0"
+                <input id="total" type="text" class="form-control w-100" name="total" min="0" max="100" value="0"
                   readonly>
               </div>
             </div>

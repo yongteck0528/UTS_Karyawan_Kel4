@@ -20,7 +20,8 @@ function hitung() {
     grade = "D";
   }
 
-  document.getElementById("txt").value = total;
+  document.getElementById("total").value = total;
+  document.getElementById("grade").value = grade;
   
 
   console.log(txtTotal);
