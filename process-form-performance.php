@@ -18,7 +18,7 @@ print_r($_POST);
 // var_dump($nik, $foto, $nama, $statusKerja, $posisi, $tanggalPenilaian, $responsibility, $timeManagement, $teamwork, $total, $grade);
 
 $host = "localhost";
-$dbname = "karyawan";
+$dbname = "karyawan_kel4";
 $username = "root";
 $password = "";
 
@@ -70,16 +70,5 @@ mysqli_stmt_bind_param($stmt,"isssssdddds",
 mysqli_stmt_execute($stmt);
 
 echo"The record has been saved";
-// '$nik', 
-// '$filenm', 
-// '$nama', 
-// '$statusKerja', 
-// '$posisi', 
-// '$tanggalPenilaian', 
-// '$responsibility', 
-// '$teamwork', 
-// '$timeManagement', 
-// '$total', 
-// '$grade'
 
 ?>

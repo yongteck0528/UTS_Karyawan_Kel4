@@ -316,6 +316,9 @@
 
   </section>
 
+
+  <!-- TAMPIL TABLE -->
+
   <?php
         $con = mysqli_connect("localhost","root","","karyawan_kel4") or die(mysqli_error());
 			
@@ -343,50 +346,52 @@
           //Tampilkan data dari database
           function showtable($con){
             ?>
-                <table border="1" class = "table table-striped">
-                  <tr>
-                    <th>Tanggal</th>
-                    <th>NIK</th>
-                    <th>Nama</th>
-                    <th>Status Kerja</th>
-                    <th>Posisi</th>
-                    <th>Total</th>
-                    <th>Grade</th>
-                    <th>Aksi</th>
-                  </tr>
-        
-                  <?php 
-                    $sql = "SELECT * FROM performance";
-                    $result = mysqli_query($con,$sql) or die(mysqli_error($sql));
-                    if(mysqli_num_rows($result)>0){
-                      while($data = mysqli_fetch_array($result)){	
-                  ?>
-                        <tr>
-                          <td><?= $data['tgl_penilaian']; ?></td>
-                                            <td><?= $data['nik'];?></td>
-                          <td><?= $data['nama']; ?></td>
-                          <td><?= $data['status_kerja']; ?></td>
-                          <td><?= $data['position']; ?></td>
-                          <td><?= $data['total']; ?></td>
-                          <td><?= $data['grade']; ?></td>
-                          <td align="center"> 
-                                                <a href="performance.php?aksi=view&kd=<?= $data['nik']; ?>"><button type="button" class="btn btn-primary">View</button></a> |
-                            <a href="performance.php?aksi=edit&kd=<?= $data['nik']; ?>">Edit</a> |
-                            <a href="performance.php?aksi=hapus&kd=<?= $data['nik']; ?>" onclick="return confirm('Apakah yakin dihapus?')">Hapus</a>
-                          </td>
-                        </tr>
-                  <?php 
-                      } 
-                    }
-                    else{
-                  ?>
+            <div class="row">
+              <table border="1" class = "table table-striped ">
+                <tr>
+                  <th>Tanggal</th>
+                  <th>NIK</th>
+                  <th>Nama</th>
+                  <th>Status Kerja</th>
+                  <th>Posisi</th>
+                  <th>Total</th>
+                  <th>Grade</th>
+                  <th>Aksi</th>
+                </tr>
+      
+                <?php 
+                  $sql = "SELECT * FROM performance";
+                  $result = mysqli_query($con,$sql) or die(mysqli_error($sql));
+                  if(mysqli_num_rows($result)>0){
+                    while($data = mysqli_fetch_array($result)){	
+                ?>
                       <tr>
-                        <td colspan="8" align="center"><i>Data Belum Ada</i></td>
+                        <td><?= $data['tgl_penilaian']; ?></td>
+                                          <td><?= $data['nik'];?></td>
+                        <td><?= $data['nama']; ?></td>
+                        <td><?= $data['status_kerja']; ?></td>
+                        <td><?= $data['position']; ?></td>
+                        <td><?= $data['total']; ?></td>
+                        <td><?= $data['grade']; ?></td>
+                        <td align="center"> 
+                                              <a href="performance.php?aksi=view&kd=<?= $data['nik']; ?>"><button type="button" class="btn btn-primary">View</button></a> |
+                          <a href="performance.php?aksi=edit&kd=<?= $data['nik']; ?>">Edit</a> |
+                          <a href="performance.php?aksi=hapus&kd=<?= $data['nik']; ?>" onclick="return confirm('Apakah yakin dihapus?')">Hapus</a>
+                        </td>
                       </tr>
-                  <?php
-                    }
-                  ?>
-                </table>
+                <?php 
+                    } 
+                  }
+                  else{
+                ?>
+                    <tr>
+                      <td colspan="8" align="center"><i>Data Belum Ada</i></td>
+                    </tr>
+                <?php
+                  }
+                ?>
+              </table>
+            </div>
                         <?php
                 }
                 
@@ -605,7 +610,7 @@
     <hr class="d-flex justify-content-center mx-auto">
     <div class="row px-5 mx-5">
       <div class="col ps-5 ms-5">
-        <img src="image/logo_white.png" alt="logo" class="img-responsive mx-auto d-block footer-custom-img">
+        <img src="image/logo_white.png" alt="logo" class="img-fluid mx-auto d-block footer-custom-img">
       </div>
       <div class="col pe-5 me-5 d-flex flex-column justify-content-center ">
         <div class="row">
