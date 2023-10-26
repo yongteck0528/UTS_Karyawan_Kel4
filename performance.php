@@ -94,7 +94,6 @@ include_once("connection.php");
             <!-- 3 Buttons -->
             <div class="row">
               <div class="col">
-                <!-- <button type="submit" class="btn btn-success w-100" >Simpan</button> -->
                 <input type="submit" value="Submit" class="btn btn-success w-100" id="submitBtn">
               </div>
               <div class="row">
@@ -261,8 +260,8 @@ include_once("connection.php");
               <div class="col-9">
                 <select id="statusKerja" class="form-select w-75" name="statusKerja">
                   <option value="" selected class="text-center"> ---Pilih---</option>
-                  <option value="tetap"> Karyawan Tetap</option>
-                  <option value="tidakTetap"> Karyawan Tidak Tetap</option>
+                  <option value="Tetap"> Karyawan Tetap</option>
+                  <option value="TidakTetap"> Karyawan Tidak Tetap</option>
                 </select>
               </div>
             </div>
@@ -385,7 +384,7 @@ include_once("connection.php");
     <section id="table">
       <div class="container mx-auto mt-5">
 
-        <table border="1" class="table table-striped table-responsive text-center ">
+        <table class="table table-striped table-responsive text-center">
           <tr>
             <th>Tanggal</th>
             <th>NIK</th>

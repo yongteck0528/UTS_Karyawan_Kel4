@@ -16,7 +16,7 @@
   <nav class="navbar navbar-expand-lg">
     <div class="container-fluid py-2 bg-body-tertiary">
       <a class="navbar-brand ps-5" href="#">
-        <img src="image/logo_black.png" alt="" class="img-responsive custom-img">
+        <img src="image/logo/HEalty.png" alt="" class="img-responsive custom-img">
       </a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
         aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -25,10 +25,10 @@
       <div class="collapse navbar-collapse justify-content-end me-5" id="navbarNav">
         <ul class="navbar-nav">
           <li class="nav-item">
-            <a class="nav-link mx-3 text-primary  current-page-nav" href="home.php">HOME</a>
+            <a class="nav-link mx-3 text-primary current-page-nav" href="home.php">HOME</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link mx-3" href="performance.php">PERFORMANCE</a>
+            <a class="nav-link mx-3  " href="performance.php">PERFORMANCE</a>
           </li>
           <li class="nav-item">
             <a class="nav-link mx-3" href="index.php">LOG OUT</a>
@@ -39,26 +39,126 @@
     </div>
   </nav>
 
+
   <!-- section 1 -->
   <section class="container h-auto">
 
   </section>
 
   <!-- section 2 table karyawan tetap -->
-  <section class="container h-auto">
+  <section class="container h-auto mx-auto mt-5">
 
+    <div class="row">
+      <div class="col">
+        <div class="card mt-5 mb-2">
+          <div class="display-6 text-center mb-2"><b>Karyawan Tetap</b> <br> dengan Performance C dan D 2023</div>
+        </div>
+      </div>
+    </div>
+
+    <table class="table table-striped table-responsive text-center">
+      <tr>
+        <th>Foto</th>
+        <th>NIK</th>
+        <th>Nama</th>
+        <th>Position</th>
+      </tr>
+      <?php
+
+      include_once("connection.php");
+
+      $query = "SELECT nik, foto, nama, position FROM performance WHERE status_kerja = 'Tetap' AND (grade = 'C' OR grade = 'D');";
+      $result = mysqli_query($con, $query);
+      if (mysqli_num_rows($result) > 0) {
+        while ($data = mysqli_fetch_array($result)) {
+          ?>
+          <tr>
+            <td>
+              <?= htmlspecialchars($data['foto']) ?>
+            </td>
+            <td>
+              <?= htmlspecialchars($data['nik']) ?>
+            </td>
+            <td>
+              <?= htmlspecialchars($data['nama']) ?>
+            </td>
+            <td>
+              <?= htmlspecialchars($data['position']) ?>
+            </td>
+          </tr>
+
+          <?php
+        }
+      } else {
+        ?>
+        <tr>
+          <td colspan="8" align="center"><i>Data Belum Ada</i></td>
+        </tr>
+        <?php
+      }
+      ?>
+    </table>
   </section>
 
   <!-- section 3 table karyawan tidak tetap-->
-  <section class="container h-auto">
+  <section class="container h-auto mx-auto mt-5">
 
+    <div class="row">
+      <div class="col">
+        <div class="card mt-5 mb-2">
+          <div class="display-6 text-center mb-2"><b>Karyawan Tidak Tetap</b> <br> dengan Performance C dan D 2023</div>
+        </div>
+      </div>
+    </div>
+
+    <table class="table table-striped table-responsive text-center">
+      <tr>
+        <th>Foto</th>
+        <th>NIK</th>
+        <th>Nama</th>
+        <th>Position</th>
+      </tr>
+      <?php
+
+      // include_once("connection.php");
+
+      $query = "SELECT nik, foto, nama, position FROM performance WHERE status_kerja = 'TidakTetap' AND (grade = 'C' OR grade = 'D');";
+      $result = mysqli_query($con, $query);
+      if (mysqli_num_rows($result) > 0) {
+        while ($data = mysqli_fetch_array($result)) {
+          ?>
+          <tr>
+            <td>
+              <?= htmlspecialchars($data['foto']) ?>
+            </td>
+            <td>
+              <?= htmlspecialchars($data['nik']) ?>
+            </td>
+            <td>
+              <?= htmlspecialchars($data['nama']) ?>
+            </td>
+            <td>
+              <?= htmlspecialchars($data['position']) ?>
+            </td>
+          </tr>
+
+          <?php
+        }
+      } else {
+        ?>
+        <tr>
+          <td colspan="8" align="center"><i>Data Belum Ada</i></td>
+        </tr>
+        <?php
+      }
+      ?>
+    </table>
   </section>
 
-
+  <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 
   <!-- footer -->
   <footer class="pt-3 mt-4 bg-black container-fluid text-light">
-    
     <div class="row pt-3">
       <ul class="nav justify-content-center pb-2">
         <li class="nav-item mx-5 h4">
@@ -72,9 +172,8 @@
     <hr class="d-flex justify-content-center mx-auto">
     <div class="row px-5 mx-5">
       <div class="col ps-5 ms-5">
-        <img src="image/logo_white.png" alt="logo" class="img-fluid mx-auto d-block footer-custom-img">
+        <img src="image/logo/HEalty.png" alt="logo" class="img-fluid mx-auto d-block footer-custom-img">
       </div>
-      
       <div class="col pe-5 me-5 d-flex flex-column justify-content-center ">
         <div class="row">
 
@@ -82,23 +181,27 @@
             <tr>
               <td class="py-3">
                 <img src="icon/marker.png" alt="location"
-                  style="width: 20px; filter: invert(100%) sepia(0%) saturate(7482%) hue-rotate(72deg) brightness(99%) contrast(99%);">   Company Name
+                  style="width: 20px; filter: invert(100%) sepia(0%) saturate(7482%) hue-rotate(72deg) brightness(99%) contrast(99%);">
+                Company Name
               </td>
             </tr>
             <tr>
               <td class="pb-3">
                 <img src="icon/phone-call.png" alt="Phone Number"
-                  style="width: 20px; filter: invert(100%) sepia(0%) saturate(7482%) hue-rotate(72deg) brightness(99%) contrast(99%);">  (123)
+                  style="width: 20px; filter: invert(100%) sepia(0%) saturate(7482%) hue-rotate(72deg) brightness(99%) contrast(99%);">
+                (123)
                 456-7890
               </td>
-            <tr >
-            <td class="pb-3">
-                <img src="icon/fax.png" alt="Fax" style="width: 20px; filter: invert(100%) sepia(0%) saturate(7482%) hue-rotate(72deg) brightness(99%) contrast(99%);">   #(123) 456-7890
+            <tr>
+              <td class="pb-3">
+                <img src="icon/fax.png" alt="Fax"
+                  style="width: 20px; filter: invert(100%) sepia(0%) saturate(7482%) hue-rotate(72deg) brightness(99%) contrast(99%);">
+                #(123) 456-7890
               </td>
             </tr>
           </table>
         </div>
-      
+
         <br />
         <div class="row bg-black">
           <ul class="icon">
@@ -114,9 +217,10 @@
     <div class="row">
       <p class="text-center text-light">© 2023 Company, Inc</p>
     </div>
-    
+
   </footer>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-..."
     crossorigin="anonymous"></script>
 </body>
+
 </html>
