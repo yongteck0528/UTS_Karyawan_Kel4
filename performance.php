@@ -267,7 +267,7 @@ include_once("connection.php");
                 <select id="statusKerja" class="form-select w-75" name="statusKerja">
                   <option value="" selected class="text-center"> ---Pilih---</option>
                   <option value="Tetap"> Karyawan Tetap</option>
-                  <option value="TidakTetap"> Karyawan Tidak Tetap</option>
+                  <option value="Tidak Tetap"> Karyawan Tidak Tetap</option>
                 </select>
               </div>
             </div>
