@@ -74,7 +74,7 @@
           ?>
           <tr>
             <td>
-              <?= htmlspecialchars($data['foto']) ?>
+            <?= "<img src='image/" . $data['foto'] . "' width='100' height='100' title='" . $data['nama'] . "'/>"; ?>
             </td>
             <td>
               <?= htmlspecialchars($data['nik']) ?>
@@ -129,7 +129,7 @@
           ?>
           <tr>
             <td>
-              <?= htmlspecialchars($data['foto']) ?>
+            <?= "<img src='image/" . $data['foto'] . "' width='100' height='100' title='" . $data['nama'] . "'/>"; ?>
             </td>
             <td>
               <?= htmlspecialchars($data['nik']) ?>
