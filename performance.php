@@ -29,19 +29,25 @@ include_once("connection.php");
         aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
-      <div class="collapse navbar-collapse justify-content-end me-5" id="navbarNav">
-        <ul class="navbar-nav">
-          <li class="nav-item">
-            <a class="nav-link mx-3" href="home.php">HOME</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link mx-3 text-primary current-page-nav" href="performance.php">PERFORMANCE</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link mx-3" href="index.php">LOG OUT</a>
-          </li>
+      <div class="offcanvas offcanvas-end" data-bs-scroll="true" tabindex="-1" id="navbarNav">
+        <div class="offcanvas-header">
+          <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        
+        <div class="collapse navbar-collapse offcanvas-body justify-content-end me-5" id="navbarNav">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link mx-3" href="home.php">HOME</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link mx-3 text-primary current-page-nav" href="performance.php">PERFORMANCE</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link mx-3" href="index.php">LOG OUT</a>
+            </li>
 
-        </ul>
+          </ul>
+        </div>
       </div>
     </div>
   </nav>
