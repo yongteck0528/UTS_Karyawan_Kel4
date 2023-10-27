@@ -28,7 +28,7 @@
             <a class="nav-link mx-3 text-primary current-page-nav" href="home.php">HOME</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link mx-3  " href="performance.php">PERFORMANCE</a>
+            <a class="nav-link mx-3" href="performance.php">PERFORMANCE</a>
           </li>
           <li class="nav-item">
             <a class="nav-link mx-3" href="index.php">LOG OUT</a>
@@ -122,7 +122,7 @@
 
       // include_once("connection.php");
 
-      $query = "SELECT nik, foto, nama, position FROM performance WHERE status_kerja = 'TidakTetap' AND (grade = 'C' OR grade = 'D');";
+      $query = "SELECT nik, foto, nama, position FROM performance WHERE status_kerja = 'Tidak Tetap' AND (grade = 'C' OR grade = 'D');";
       $result = mysqli_query($con, $query);
       if (mysqli_num_rows($result) > 0) {
         while ($data = mysqli_fetch_array($result)) {
