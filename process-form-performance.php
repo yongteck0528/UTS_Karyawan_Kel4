@@ -15,8 +15,6 @@ $grade = $_POST["grade"];
 $filenm = $nama . '-' . uniqid() . '.png';
 move_uploaded_file($loc, 'image/' . $filenm);
 
-
-
 $sql = "INSERT INTO performance (nik, 
                                 foto, 
                                 nama, 

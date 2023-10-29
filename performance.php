@@ -81,7 +81,6 @@ include_once("connection.php");
     ?>
     <section id="performance">
       <div class="container mx-auto">
-        <form method="POST" enctype="multipart/form-data">
           <div class="row pb-5">
             <div class="col-5">
               <div class="container card-header mx-auto">
@@ -364,7 +363,7 @@ include_once("connection.php");
                   </div>
                 </form>
 
-                <!-- <div id="result"></div> -->
+                <div id="result"></div>
 
                 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
                 <script>
