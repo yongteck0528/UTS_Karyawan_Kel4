@@ -815,10 +815,9 @@ include_once("connection.php");
                         <!-- Foto -->
                         <div class="row">
                           <div class="col-8">
-                            <input id="file" type="file" class="form-control w-75" accept=".png, .jpg, .jpeg, .jfif, .gif"
-                              name="file"/>
-
+                            <input type="hidden" name="old" value="<?= $data['foto']; ?>"/>
                             <?= "<img src='image/" . $data['foto'] . "' name='old_photo' width='100' height='100' title='" . $data['nama'] . "'/>"; ?>
+                            <input id="file" type="file" class="form-control w-75" accept=".png, .jpg, .jpeg, .jfif, .gif" name="file"/>  
                           </div>
                         </div>
                       </div>
@@ -1075,7 +1074,7 @@ include_once("connection.php");
 
     if (isset($_POST['update'])) {
       $id = $_POST['nik'];
-      $old_foto = $_POST['old_photo'];
+      $old_foto = $_POST['old'];
       $new_foto = $_FILES['file']['tmp_name'];
       $nama = $_POST['nama'];
       $status_kerja = $_POST['status_kerja'];
@@ -1101,13 +1100,13 @@ include_once("connection.php");
                                             WHERE nik='$id'";
         $result = mysqli_query($con, $sql);
       } else {
-        unlink('image/' . $old_foto);
-        $foto = $_FILES['foto']['tmp_name'];
-        $foto_name = $nama . '-' . uniqid() . '.png';
-        move_uploaded_file($foto, 'image/' . $foto_name);
+        //unlink('UTS_karyawan_kel4/image/'.$old_foto);
+        $foto = $_FILES['file']['tmp_name'];
+        $filenm = $nama . '-' . uniqid() . '.png';
+        move_uploaded_file($foto, 'image/' . $filenm );
 
         $sql = "UPDATE performance SET 
-                                            foto ='$foto_name',
+                                            foto ='$filenm ',
                                             nama='$nama', 
                                             status_kerja ='$status_kerja',
                                             position ='$position',
@@ -1119,11 +1118,6 @@ include_once("connection.php");
                                             grade = '$grade'
                                             WHERE nik='$id'";
         $result = mysqli_query($con, $sql);
-      }
-      if ($result) {
-        header("location:performance.php");
-      } else {
-        echo "Query Error : " . mysqli_error($con);
       }
     }
   }
