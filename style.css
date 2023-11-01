@@ -9,7 +9,7 @@ body {
   /* background-image: linear-gradient(to bottom, rgba(87, 159, 236, 100%), rgba(207, 230, 255, 100%)); */
   /* background-repeat: no-repeat; */
   /* background-attachment: fixed; */
-  background-color: #32a852;
+  background-color: #32a852 !important;
 }
 
 

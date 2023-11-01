@@ -16,8 +16,11 @@
 
   <div class="section">
     <div class="container">
-      <div class="row full-height justify-content-center">
-        <div class="col-12 text-center align-self-center py-5">
+      <div class="row full-height justify-content-center">  
+        <div class="col-6 align-self-center d-flex flex-row-reverse logo-padding">
+          <img src="image\logo\HEalty.png" alt="" class="w-75">
+        </div>
+        <div class="col-6 text-center align-self-center py-5">
           <div class="section pb-5 pt-5 pt-sm-2 text-center">
             <h6 class="mb-0 pb-3"><span>Log In</span><span>Sign Up</span></h6>
             <input class="checkbox" type="checkbox" name="reg-log" id="reg-log" />
@@ -38,7 +41,7 @@
                           autocomplete="off">
                         
                       </div>
-                      <a href="home.php" class="btn text-light mt-4">Submit</a>
+                      <a href="home.php" class="btn mt-4">Submit</a>
                       <p class="mb-0 mt-4 text-center"><a href="#0" class="link">Forgot Your Password?</a></p>
 
                     </div>
@@ -58,7 +61,7 @@
                           autocomplete="off">
                         
                       </div>
-                      <a href="#" class="btn text-light mt-4">Submit</a>
+                      <a href="#" class="btn mt-4">Submit</a>
                     </div>
                   </div>
                 </div>
