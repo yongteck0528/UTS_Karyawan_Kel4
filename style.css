@@ -6,15 +6,21 @@
 html,
 body {
   height: 100%;
-  /* background-image: linear-gradient(to bottom, rgba(87, 159, 236, 100%), rgba(207, 230, 255, 100%)); */
-  /* background-repeat: no-repeat; */
-  /* background-attachment: fixed; */
-  background-color: #32a852 !important;
+  background-color: #073B3A !important;
+}
+
+.section-padding-top{
+  padding-top: 5px;
 }
 
 
+.bg-navbar{
+  background-color: #073B3A;
+  filter: brightness(0.95);
+}
+
 .current-page-nav {
-  color: rgb(59, 0, 255);
+  color: #0B6E4F;
   font-style: normal;
   font-weight: bold;
   font-size: 16px;

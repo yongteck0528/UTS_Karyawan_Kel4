@@ -20,9 +20,11 @@ include_once("connection.php");
 </head>
 
 <body>
+
+<br><br><br><br><br>
   <!-- navbar  -->
   <nav class="navbar navbar-expand-lg">
-    <div class="container-fluid py-2 bg-body-tertiary">
+    <div class="container-fluid py-2 bg-navbar fixed-top">
       <a class="navbar-brand ps-5" href="#">
         <img src="image/logo/HEalty.png" alt="" class="img-responsive custom-img">
       </a>
@@ -30,25 +32,18 @@ include_once("connection.php");
         aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
-      <div class="offcanvas offcanvas-end" data-bs-scroll="true" tabindex="-1" id="navbarNav">
-        <div class="offcanvas-header">
-          <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-        </div>
-
-        <div class="collapse navbar-collapse offcanvas-body justify-content-end me-5" id="navbarNav">
-          <ul class="navbar-nav">
-            <li class="nav-item">
-              <a class="nav-link mx-3" href="home.php">HOME</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link mx-3 text-primary current-page-nav" href="performance.php">PERFORMANCE</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link mx-3" href="index.php">LOG OUT</a>
-            </li>
-
-          </ul>
-        </div>
+      <div class="collapse navbar-collapse justify-content-end me-5" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link mx-3 text-primary  text-light" href="home.php">HOME</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link mx-3 fw-bold text-light" href="performance.php">PERFORMANCE</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link mx-3 text-light" href="index.php">LOG OUT</a>
+          </li>
+        </ul>
       </div>
     </div>
   </nav>

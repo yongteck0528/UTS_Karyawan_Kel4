@@ -12,9 +12,10 @@
 </head>
 
 <body>
+<br><br><br><br><br>
   <!-- navbar  -->
   <nav class="navbar navbar-expand-lg">
-    <div class="container-fluid py-2 bg-body-tertiary">
+    <div class="container-fluid py-2 bg-navbar fixed-top">
       <a class="navbar-brand ps-5" href="#">
         <img src="image/logo/HEalty.png" alt="" class="img-responsive custom-img">
       </a>
@@ -25,15 +26,14 @@
       <div class="collapse navbar-collapse justify-content-end me-5" id="navbarNav">
         <ul class="navbar-nav">
           <li class="nav-item">
-            <a class="nav-link mx-3 text-primary current-page-nav" href="home.php">HOME</a>
+            <a class="nav-link mx-3 text-primary fw-bold text-light" href="home.php">HOME</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link mx-3" href="performance.php">PERFORMANCE</a>
+            <a class="nav-link mx-3 text-light" href="performance.php">PERFORMANCE</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link mx-3" href="index.php">LOG OUT</a>
+            <a class="nav-link mx-3 text-light" href="index.php">LOG OUT</a>
           </li>
-
         </ul>
       </div>
     </div>
