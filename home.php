@@ -12,7 +12,7 @@
 </head>
 
 <body>
-<br><br><br><br><br>
+  <br><br><br><br><br>
   <!-- navbar  -->
   <nav class="navbar navbar-expand-lg">
     <div class="container-fluid py-2 bg-navbar fixed-top">
@@ -42,7 +42,39 @@
 
   <!-- section 1 -->
   <section class="container h-auto">
+    <div class="row dashboard align-item-center">
+      <div class="col-md-4">
+        <div class="card">
+          <div class="card-body">
 
+            <h2 class="d-flex align-item-center justify-content-center">Karyawan</h2>
+            <canvas id="karyawanChart"></canvas>
+          </div>
+        </div>
+
+
+      </div>
+      <div class="col">
+
+        <div class="col-md-4">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Card 2</h5>
+              <p class="card-text">This is the content of card 2.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Card 3</h5>
+              <p class="card-text">This is the content of card 3.</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
   </section>
 
   <!-- section 2 table karyawan tetap -->
@@ -74,7 +106,7 @@
           ?>
           <tr>
             <td>
-            <?= "<img src='image/" . $data['foto'] . "' width='100' height='100' title='" . $data['nama'] . "'/>"; ?>
+              <?= "<img src='image/" . $data['foto'] . "' width='100' height='100' title='" . $data['nama'] . "'/>"; ?>
             </td>
             <td>
               <?= htmlspecialchars($data['nik']) ?>
@@ -121,7 +153,7 @@
       <?php
 
       // include_once("connection.php");
-
+      
       $query = "SELECT nik, foto, nama, position FROM performance WHERE status_kerja = 'Tidak Tetap' AND (grade = 'C' OR grade = 'D');";
       $result = mysqli_query($con, $query);
       if (mysqli_num_rows($result) > 0) {
@@ -129,7 +161,7 @@
           ?>
           <tr>
             <td>
-            <?= "<img src='image/" . $data['foto'] . "' width='100' height='100' title='" . $data['nama'] . "'/>"; ?>
+              <?= "<img src='image/" . $data['foto'] . "' width='100' height='100' title='" . $data['nama'] . "'/>"; ?>
             </td>
             <td>
               <?= htmlspecialchars($data['nik']) ?>
@@ -221,6 +253,40 @@
   </footer>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-..."
     crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+
+  <script>
+    <?php
+    include('connection.php');
+    $query1 = "SELECT * from performance WHERE status_kerja = 'Tetap'";
+    $query2 = "SELECT * from performance WHERE status_kerja = 'Tidak Tetap'";
+
+    if($result = mysqli_query($con, $query1)){
+      $rowcount1 = mysqli_num_rows($result);
+    }
+    if($result = mysqli_query($con, $query2)){
+      $rowcount2 = mysqli_num_rows($result);
+    }
+    ?>
+    
+    const ctx = document.getElementById('karyawanChart');
+    new Chart(ctx, {
+      type: 'pie',
+      data: {
+        labels: ['Tetap', 'Tidak Tetap'],
+        datasets: [{
+          label: 'Jumlah Karywan',
+          data: [<?=$rowcount1?>, <?=$rowcount2?>],
+          borderWidth: 1
+        }]
+      },
+      
+    });
+
+
+  </script>
+
+
 </body>
 
 </html>
