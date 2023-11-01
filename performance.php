@@ -84,7 +84,7 @@ include_once("connection.php");
             <div class="row">
               <div class="col">
                 <div class="card mt-5">
-                  <div class="display-4 text-center mb-2">Performance</div>
+                  <div class="display-4 text-center mb-2"><b>Performance</b></div>
                 </div>
               </div>
             </div>
