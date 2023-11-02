@@ -66,14 +66,12 @@ include_once("connection.php");
       case "edit":
         ?>
         <div class="container bg-white mx-auto my-3 p-5 rounded shadow-lg">
-          <?php
-          view($con);
-          showtable($con);
-          ?>
-        </div>
         <?php
         edit($con);
         showtable($con);
+        ?>
+        </div>
+        <?php
         break;
       case "hapus":
         hapus($con);
@@ -518,6 +516,8 @@ include_once("connection.php");
   {
     if (isset($_GET['kd'])) {
       $kd = $_GET['kd'];
+      $img	= $_GET['img'];
+			unlink('image/'.$img);
       $sql = "DELETE FROM performance WHERE nik='$kd'";
       $result = mysqli_query($con, $sql);
       if ($result) {
@@ -847,7 +847,7 @@ include_once("connection.php");
                       <!-- 3 Buttons -->
                       <div class="row">
                         <div class="col">
-                          <input type="submit" value="update" name="update" class="btn btn-success w-100" id="update">
+                          <input type="submit" value="update" name="update" onclick="window.location.href='performance.php'" class="btn btn-success w-100" id="update" />
                         </div>
                         <div class="row">
                           <div class="col">
@@ -1119,10 +1119,10 @@ include_once("connection.php");
                                             WHERE nik='$id'";
         $result = mysqli_query($con, $sql);
       } else {
-        //unlink('UTS_karyawan_kel4/image/'.$old_foto);
-        $foto = $_FILES['file']['tmp_name'];
+        unlink('UTS_Karyawan_Kel4/image/'.$old_foto);
+        $loc = $_FILES['file']['tmp_name'];
         $filenm = $nama . '-' . uniqid() . '.png';
-        move_uploaded_file($foto, 'image/' . $filenm);
+        move_uploaded_file($loc, 'image/' . $filenm);
 
         $sql = "UPDATE performance SET 
                                             foto ='$filenm ',
@@ -1138,6 +1138,7 @@ include_once("connection.php");
                                             WHERE nik='$id'";
         $result = mysqli_query($con, $sql);
       }
+      echo '<script>window.location.href = "performance.php";</script>';
     }
   }
   ?>
