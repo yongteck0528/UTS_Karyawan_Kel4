@@ -189,8 +189,7 @@
     </table>
   </section>
 
-  <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-
+  <br><br>
   <!-- footer -->
   <footer class="pt-3 mt-4 bg-black container-fluid text-light">
       <div class="row pt-3">
