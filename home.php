@@ -48,7 +48,9 @@
           <div class="card-body">
 
             <h2 class="d-flex align-item-center justify-content-center">Karyawan</h2>
+            <p id="date"></p>
             <canvas id="karyawanChart"></canvas>
+
           </div>
         </div>
 
@@ -59,16 +61,19 @@
         <div class="col-md-4">
           <div class="card">
             <div class="card-body">
-              <h5 class="card-title">Card 2</h5>
-              <p class="card-text">This is the content of card 2.</p>
+              <h2 class="d-flex align-item-center justify-content-center">Hasil Performance Karyawan Tetap</h2>
+              <canvas id="TetapChart"></canvas>
+              <p id="date_y"></p>
+
             </div>
           </div>
         </div>
         <div class="col-md-4">
           <div class="card">
             <div class="card-body">
-              <h5 class="card-title">Card 3</h5>
-              <p class="card-text">This is the content of card 3.</p>
+              <h2 class="d-flex align-item-center justify-content-center">Hasil Performance Karyawan Tidak Tetap</h2>
+              <canvas id="TidakTetapChart"></canvas>
+              <p id="date_y2"></p>
             </div>
           </div>
         </div>
@@ -261,29 +266,109 @@
     $query1 = "SELECT * from performance WHERE status_kerja = 'Tetap'";
     $query2 = "SELECT * from performance WHERE status_kerja = 'Tidak Tetap'";
 
-    if($result = mysqli_query($con, $query1)){
+    if ($result = mysqli_query($con, $query1)) {
       $rowcount1 = mysqli_num_rows($result);
     }
-    if($result = mysqli_query($con, $query2)){
+    if ($result = mysqli_query($con, $query2)) {
       $rowcount2 = mysqli_num_rows($result);
     }
+
+    $queryA_T = "SELECT * from performance WHERE grade = 'A' AND status_kerja = 'Tetap'";
+    $queryB_T = "SELECT * from performance WHERE grade = 'B' AND status_kerja = 'Tetap'";
+    $queryC_T = "SELECT * from performance WHERE grade = 'C' AND status_kerja = 'Tetap'";
+    $queryD_T = "SELECT * from performance WHERE grade = 'D' AND status_kerja = 'Tetap'";
+
+    if ($result = mysqli_query($con, $queryA_T)) {
+      $rowcountA = mysqli_num_rows($result);
+    }
+    if ($result = mysqli_query($con, $queryB_T)) {
+      $rowcountB = mysqli_num_rows($result);
+    }
+    if ($result = mysqli_query($con, $queryC_T)) {
+      $rowcountC = mysqli_num_rows($result);
+    }
+    if ($result = mysqli_query($con, $queryD_T)) {
+      $rowcountD = mysqli_num_rows($result);
+    }
+
+    $queryA_TT = "SELECT * from performance WHERE grade = 'A' AND status_kerja = 'Tidak Tetap'";
+    $queryB_TT = "SELECT * from performance WHERE grade = 'B' AND status_kerja = 'Tidak Tetap'";
+    $queryC_TT = "SELECT * from performance WHERE grade = 'C' AND status_kerja = 'Tidak Tetap'";
+    $queryD_TT = "SELECT * from performance WHERE grade = 'D' AND status_kerja = 'Tidak Tetap'";
+
+    if ($result = mysqli_query($con, $queryA_TT)) {
+      $rowcountA_TT = mysqli_num_rows($result);
+    }
+    if ($result = mysqli_query($con, $queryB_TT)) {
+      $rowcountB_TT = mysqli_num_rows($result);
+    }
+    if ($result = mysqli_query($con, $queryC_TT)) {
+      $rowcountC_TT = mysqli_num_rows($result);
+    }
+    if ($result = mysqli_query($con, $queryD_TT)) {
+      $rowcountD_TT = mysqli_num_rows($result);
+    }
+
     ?>
-    
-    const ctx = document.getElementById('karyawanChart');
-    new Chart(ctx, {
+
+    const j_karyawan = document.getElementById('karyawanChart');
+    const Tetap_P = document.getElementById('TetapChart');
+    const TidakTetap_P = document.getElementById('TidakTetapChart');
+
+    new Chart(j_karyawan, {
       type: 'pie',
       data: {
         labels: ['Tetap', 'Tidak Tetap'],
         datasets: [{
-          label: 'Jumlah Karywan',
-          data: [<?=$rowcount1?>, <?=$rowcount2?>],
+          label: 'Jumlah Karyawan',
+          data: [<?= $rowcount1 ?>, <?= $rowcount2 ?>],
           borderWidth: 1
         }]
       },
-      
+      options: {
+        // Configure additional options for the pie chart if needed
+      }
     });
 
+    new Chart(Tetap_P, {
+      type: 'bar',
+      data: {
+        labels: ['A', 'B', 'C', 'D'],
+        datasets: [{
+          label: 'Jumlah Karyawan',
+          data: [<?= $rowcountA ?>, <?= $rowcountB ?>, <?= $rowcountC ?>, <?= $rowcountD ?>],
+          borderWidth: 1
+        }]
+      },
+      options: {
+        // Configure additional options for the bar chart if needed
+      }
+    });
 
+    new Chart(TidakTetap_P, {
+      type: 'bar',
+      data: {
+        labels: ['A', 'B', 'C', 'D'],
+        datasets: [{
+          label: 'Jumlah Karyawan',
+          data: [<?= $rowcountA_TT ?>, <?= $rowcountB_TT ?>, <?= $rowcountC_TT ?>, <?= $rowcountD_TT ?>],
+          borderWidth: 1
+        }]
+      },
+      options: {
+        // Configure additional options for the second bar chart if needed
+      }
+    });
+  </script>
+
+  <script>
+    n = new Date();
+    y = n.getFullYear();
+    m = n.getMonth() + 1;
+    d = n.getDate();
+    document.getElementById("date").innerHTML = "[" + d + "-" + m + "-" + y + "]";
+    document.getElementBy("date_y").innerHTML = "[" + y + "]";
+    document.getElementBy("date_y2").innerHTML = "[" + y + "]";
   </script>
 
 </body>
