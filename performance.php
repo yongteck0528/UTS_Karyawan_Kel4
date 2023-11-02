@@ -491,7 +491,7 @@ include_once("connection.php");
                       class="btn btn-primary">View</button>
                   </a> |
                   <a href="performance.php?aksi=edit&kd=<?= $data['nik']; ?>">Edit</a> |
-                  <a href="performance.php?aksi=hapus&kd=<?= $data['nik']; ?>"
+                  <a href="performance.php?aksi=hapus&kd=<?= $data['nik']; ?>&img=<?=$data['file'];?>"
                     onclick="return confirm('Apakah yakin dihapus?')">Hapus</a>
                 </td>
               </tr>
@@ -515,10 +515,10 @@ include_once("connection.php");
   function hapus($con)
   {
     if (isset($_GET['kd'])) {
-      $kd = $_GET['kd'];
+      $id = $_GET['kd'];
       $img	= $_GET['img'];
 			unlink('image/'.$img);
-      $sql = "DELETE FROM performance WHERE nik='$kd'";
+      $sql = "DELETE FROM performance WHERE nik='$id'";
       $result = mysqli_query($con, $sql);
       if ($result) {
         header('location: performance.php');
@@ -833,10 +833,10 @@ include_once("connection.php");
                       <!-- Foto -->
                       <div class="row">
                         <div class="col-8">
-                          <input type="hidden" name="old" value="<?= $data['foto']; ?>" />
-                          <?= "<img src='image/" . $data['foto'] . "' name='old_photo' width='100' height='100' title='" . $data['nama'] . "'/>"; ?>
+                          <input type="hidden" name="old" value="<?= $data['foto']; ?>">
+                          <span><?= "<img src='image/" . $data['foto'] . "' width='100' height='100' title='" . $data['nama'] . "'/>"; ?></span>
                           <input id="file" type="file" class="form-control w-75" accept=".png, .jpg, .jpeg, .jfif, .gif"
-                            name="file" />
+                            name="file">
                         </div>
                       </div>
                     </div>
@@ -1119,10 +1119,10 @@ include_once("connection.php");
                                             WHERE nik='$id'";
         $result = mysqli_query($con, $sql);
       } else {
-        unlink('UTS_Karyawan_Kel4/image/'.$old_foto);
+        unlink('image/'.$old_foto);
         $loc = $_FILES['file']['tmp_name'];
-        $filenm = $nama . '-' . uniqid() . '.png';
-        move_uploaded_file($loc, 'image/' . $filenm);
+        $filenm = $nama.'-'.uniqid().'.png';
+        move_uploaded_file($loc, 'image/'.$filenm);
 
         $sql = "UPDATE performance SET 
                                             foto ='$filenm ',
