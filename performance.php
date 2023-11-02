@@ -21,7 +21,7 @@ include_once("connection.php");
 
 <body>
 
-<br><br><br><br><br>
+  <br><br><br><br><br>
   <!-- navbar  -->
   <nav class="navbar navbar-expand-lg">
     <div class="container-fluid py-2 bg-navbar fixed-top">
@@ -54,10 +54,24 @@ include_once("connection.php");
   if (isset($_GET['aksi'])) {
     switch ($_GET['aksi']) {
       case "view":
-        view($con);
-        showtable($con);
+        ?>
+        <div class="container bg-white mx-auto my-3 p-5 rounded shadow-lg">
+          <?php
+          view($con);
+          showtable($con);
+          ?>
+        </div>
+        <?php
         break;
       case "edit":
+        ?>
+        <div class="container bg-white mx-auto my-3 p-5 rounded shadow-lg">
+          <?php
+          view($con);
+          showtable($con);
+          ?>
+        </div>
+        <?php
         edit($con);
         showtable($con);
         break;
@@ -70,8 +84,15 @@ include_once("connection.php");
         showtable($con);
     }
   } else {
+    ?>
+        <div class="container bg-white mx-auto my-3 p-5 rounded shadow-lg">
+          <?php
     add($con);
     showtable($con);
+    ?>
+    </div>
+        <?php
+
   }
   function add($con)
   {
@@ -83,13 +104,13 @@ include_once("connection.php");
           <div class="container card-header mx-auto">
             <div class="row">
               <div class="col">
-                <div class="card mt-5">
+                <div class="card">
                   <div class="display-4 text-center mb-2"><b>Performance</b></div>
                 </div>
               </div>
             </div>
 
-            <div class="container mx-auto mt-5 ">
+            <div class="container mx-auto mt-5">
             </div>
             <form method="POST" enctype="multipart/form-data" id="performanceForm">
               <div class="row pb-5">
@@ -427,7 +448,7 @@ include_once("connection.php");
     <section id="table">
       <div class="container mx-auto">
 
-        <table class="table table-striped table-responsive text-center">
+        <table class="table table-striped table-responsive text-center table-overflow">
           <tr>
             <th>Tanggal</th>
             <th>NIK</th>
@@ -516,17 +537,17 @@ include_once("connection.php");
         <section id="view">
           <div class="container mx-auto">
             <div class="row pb-1">
-              <div class="col-5">
+              
                 <div class="container card-header mx-auto">
                   <div class="row">
                     <div class="col">
-                      <div class="card mt-5">
-                        <div class="display-4 text-center mb-2">Performance</div>
+                      <div class="card">
+                        <div class="display-4 text-center mb-2"><b>Performance</b></div>
                       </div>
                     </div>
                   </div>
 
-                  <div class="container mx-auto mt-5 ">
+                  <div class="container mx-auto mt-5">
                   </div>
                   <form method="POST" enctype="multipart/form-data" id="performanceForm">
                     <div class="row pb-5">
@@ -777,7 +798,7 @@ include_once("connection.php");
                   </div>
                 </div>
                 </form>
-              </div>
+              
         </section>
         <?php
     }
@@ -799,7 +820,7 @@ include_once("connection.php");
                 <div class="row">
                   <div class="col">
                     <div class="card mt-5">
-                      <div class="display-4 text-center mb-2">Performance</div>
+                      <div class="display-4 text-center mb-2"><b>Performance</b></div>
                     </div>
                   </div>
                 </div>
