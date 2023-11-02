@@ -66,10 +66,10 @@ include_once("connection.php");
       case "edit":
         ?>
         <div class="container bg-white mx-auto my-3 p-5 rounded shadow-lg">
-        <?php
-        edit($con);
-        showtable($con);
-        ?>
+          <?php
+          edit($con);
+          showtable($con);
+          ?>
         </div>
         <?php
         break;
@@ -83,13 +83,13 @@ include_once("connection.php");
     }
   } else {
     ?>
-        <div class="container bg-white mx-auto my-3 p-5 rounded shadow-lg">
-          <?php
-    add($con);
-    showtable($con);
-    ?>
+    <div class="container bg-white mx-auto my-3 p-5 rounded shadow-lg">
+      <?php
+      add($con);
+      showtable($con);
+      ?>
     </div>
-        <?php
+    <?php
 
   }
   function add($con)
@@ -491,7 +491,7 @@ include_once("connection.php");
                       class="btn btn-primary">View</button>
                   </a> |
                   <a href="performance.php?aksi=edit&kd=<?= $data['nik']; ?>">Edit</a> |
-                  <a href="performance.php?aksi=hapus&kd=<?= $data['nik']; ?>&img=<?=$data['file'];?>"
+                  <a href="performance.php?aksi=hapus&kd=<?= $data['nik'];?>"
                     onclick="return confirm('Apakah yakin dihapus?')">Hapus</a>
                 </td>
               </tr>
@@ -516,14 +516,18 @@ include_once("connection.php");
   {
     if (isset($_GET['kd'])) {
       $id = $_GET['kd'];
-      $img	= $_GET['img'];
-			unlink('image/'.$img);
+      $query = "SELECT foto FROM performance WHERE nik='$id'";
+      $result = mysqli_query($con, $query);
+      $data = mysqli_fetch_array($result);
+
+      unlink('image/' . $data['foto']);
       $sql = "DELETE FROM performance WHERE nik='$id'";
       $result = mysqli_query($con, $sql);
       if ($result) {
         header('location: performance.php');
       }
     }
+
   }
 
   //function view
@@ -537,268 +541,267 @@ include_once("connection.php");
         <section id="view">
           <div class="container mx-auto">
             <div class="row pb-1">
-              
-                <div class="container card-header mx-auto">
+
+              <div class="container card-header mx-auto">
+                <div class="row">
+                  <div class="col">
+                    <div class="card">
+                      <div class="display-4 text-center mb-2"><b>Performance</b></div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="container mx-auto mt-5">
+                </div>
+                <form method="POST" enctype="multipart/form-data" id="performanceForm">
+                  <div class="row pb-5">
+                    <div class="col-5">
+                      <!-- Foto -->
+                      <div class="row">
+                        <div class="col-8">
+                          <?= "<img src='image/" . $data['foto'] . "' width='100' height='100' title='" . $data['nama'] . "'/>"; ?>
+                        </div>
+                      </div>
+                    </div>
+                    <!-- SPACE KOSONG -->
+                    <div class="col-6"></div>
+                    <div class="col-1">
+                      <!-- 3 Buttons -->
+                      <div class="row">
+                        <div class="col">
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col">
+                          <button type="button" class="btn btn-secondary w-100"> <a href="performance.php"
+                              style="text-decoration: none; color: inherit; font-weight: inherit;">Cancel</a></button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+              </div>
+
+              <div class="row">
+                <div class="col-5">
+                  <!-- Tanggal Penilaian -->
                   <div class="row">
-                    <div class="col">
-                      <div class="card">
-                        <div class="display-4 text-center mb-2"><b>Performance</b></div>
-                      </div>
+                    <div class="col-3">
+                      <label for="tanggalPenilaian" class="form-label text-capitalize">Tanggal Penilaian :</label>
+                    </div>
+                    <div class="col-9">
+                      <input type="date" name="tgl_penilaian" value="<?= $data['tgl_penilaian']; ?>" readonly />
                     </div>
                   </div>
-
-                  <div class="container mx-auto mt-5">
-                  </div>
-                  <form method="POST" enctype="multipart/form-data" id="performanceForm">
-                    <div class="row pb-5">
-                      <div class="col-5">
-                        <!-- Foto -->
-                        <div class="row">
-                          <div class="col-8">
-                            <?= "<img src='image/" . $data['foto'] . "' width='100' height='100' title='" . $data['nama'] . "'/>"; ?>
-                          </div>
-                        </div>
-                      </div>
-                      <!-- SPACE KOSONG -->
-                      <div class="col-6"></div>
-                      <div class="col-1">
-                        <!-- 3 Buttons -->
-                        <div class="row">
-                          <div class="col">
-                          </div>
-                        </div>
-                        <div class="row">
-                          <div class="col">
-                            <button type="button" class="btn btn-secondary w-100"> <a href="performance.php"
-                                style="text-decoration: none; color: inherit; font-weight: inherit;">Cancel</a></button>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
                 </div>
 
-                <div class="row">
-                  <div class="col-5">
-                    <!-- Tanggal Penilaian -->
-                    <div class="row">
-                      <div class="col-3">
-                        <label for="tanggalPenilaian" class="form-label text-capitalize">Tanggal Penilaian :</label>
+                <div class="col">
+                  <!-- Responsibility -->
+                  <div class="row">
+                    <div class="col-3">
+                      <div class="row">
+                        <div class="col-11">
+                          <div class="mb-4 input-group">
+                            <label for="responsibility" class="form-label">Responsibility (30%)</label>
+                          </div>
+                        </div>
+                        <div class="col">
+                          :
+                        </div>
                       </div>
-                      <div class="col-9">
-                        <input type="date" name="tgl_penilaian" value="<?= $data['tgl_penilaian']; ?>" readonly />
+                    </div>
+                    <div class="col-9 w-50">
+                      <div class="mb-4 input-group">
+                        <input type="number" name="responsibility" step="1" min="1" max="100" onFocus="start_count();"
+                          onBlur="stop_count();" value="<?= $data['responsibility']; ?>" readonly>
+                        <span class="input-group-text">
+                          <i class="bi bi-person-fill p-1">%</i>
+                        </span>
                       </div>
                     </div>
                   </div>
+                </div>
+              </div>
+              <!-- NIK -->
+              <div class="row">
+                <div class="col-5">
+                  <div class="row">
+                    <div class="col-3">
+                      <div class="row">
+                        <div class="col-11">
+                          <label for="nik" class="form-label">NIK</label>
+                        </div>
+                        <div class="col">
+                          :
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-9">
+                      <input type="number" name="nik" value="<?= $id ?>" readonly />
+                    </div>
+                  </div>
+                </div>
+                <!-- teamwork -->
+                <div class="col">
+                  <div class="row">
+                    <div class="col-3">
+                      <div class="row">
+                        <div class="col-11">
+                          <div class="mb-4 input-group">
+                            <label for="teamwork" class="form-label">Teamwork (30%)</label>
+                          </div>
+                        </div>
+                        <div class="col">
+                          :
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-9 w-50">
+                      <div class="mb-4 input-group">
+                        <input type="number" name="teamwork" step="1" min="1" max="100" onFocus="start_count();"
+                          onBlur="stop_count();" value="<?= $data['teamwork']; ?>" readonly>
+                        <span class="input-group-text">
+                          <i class="bi bi-person-fill p-1">%</i>
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <!-- NAMA -->
+                <div class="col-5">
+                  <div class="row">
+                    <div class="col-3">
+                      <div class="row">
+                        <div class="col-11">
+                          <label for="nama" class="form-label">Nama</label>
+                        </div>
+                        <div class="col">
+                          :
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-9">
+                      <input type="text" name="nama" placeholder="Nama" value="<?= $data['nama']; ?>" readonly />
+                    </div>
+                  </div>
+                </div>
+                <!-- Time Management -->
+                <div class="col">
+                  <div class="row">
+                    <div class="col-3">
+                      <div class="row">
+                        <div class="col-11">
+                          <div class="mb-4 input-group">
+                            <label for="timeManagement" class="form-label">Time Management(40%)</label>
+                          </div>
+                        </div>
+                        <div class="col">
+                          :
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-9 w-50">
+                      <div class="mb-4 input-group">
+                        <input type="number" name="timemanagement" step="1" min="1" max="100" onFocus="start_count();"
+                          onBlur="stop_count();" value="<?= $data['management_time']; ?>" readonly>
+                        <span class="input-group-text">
+                          <i class="bi bi-person-fill p-1">%</i>
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <!-- Status Kerja -->
+                <div class="col-5">
+                  <div class="row">
+                    <div class="col-3">
+                      <div class="row">
+                        <div class="col-11">
+                          <label for="statusKerja" class="form-label">Status Kerja</label>
+                        </div>
+                        <div class="col">
+                          :
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-9">
+                      <select name="status_kerja" readonly>
+                        <option value="tidak tetap" <?php if ($data['status_kerja'] == 'Tidak Tetap')
+                          echo 'selected'; ?>>
+                          Tidak Tetap</option>
+                        <option value="tetap" <?php if ($data['status_kerja'] == 'Tetap')
+                          echo 'selected'; ?>>Tetap
+                        </option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+                <div class="col">
+                  <!-- TOTAL -->
+                  <div class="row">
+                    <div class="col-3">
+                      <div class="row">
+                        <div class="col-11">
+                          <div class="mb-4 input-group">
+                            <label for="total" class="form-label">Total</label>
+                          </div>
+                        </div>
+                        <div class="col">
+                          :
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-9 w-50">
+                      <input type="number" name="total" value="<?= $data['total']; ?>" readonly>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- POSISI -->
+              <div class="row">
+                <div class="col-5">
+                  <div class="row">
+                    <div class="col-3">
+                      <div class="row">
+                        <div class="col-11">
+                          <label for="posisi" class="form-label">Posisi</label>
+                        </div>
+                        <div class="col">
+                          :
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-9">
+                      <input type="text" name="position" placeholder="Posisi" value="<?= $data['position']; ?>" readonly />
+                    </div>
+                  </div>
+                </div>
+                <div class="col">
+                  <!-- GRADE -->
+                  <div class="row mb-5">
+                    <div class="col-3">
+                      <div class="row">
+                        <div class="col-11">
+                          <div class="mb-4 input-group">
+                            <label for="grade" class="form-label">Grade</label>
+                          </div>
+                        </div>
+                        <div class="col">
+                          :
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-9 w-50">
+                      <input type="text" name="grade" value="<?= $data['grade']; ?>" readonly>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              </form>
 
-                  <div class="col">
-                    <!-- Responsibility -->
-                    <div class="row">
-                      <div class="col-3">
-                        <div class="row">
-                          <div class="col-11">
-                            <div class="mb-4 input-group">
-                              <label for="responsibility" class="form-label">Responsibility (30%)</label>
-                            </div>
-                          </div>
-                          <div class="col">
-                            :
-                          </div>
-                        </div>
-                      </div>
-                      <div class="col-9 w-50">
-                        <div class="mb-4 input-group">
-                          <input type="number" name="responsibility" step="1" min="1" max="100" onFocus="start_count();"
-                            onBlur="stop_count();" value="<?= $data['responsibility']; ?>" readonly>
-                          <span class="input-group-text">
-                            <i class="bi bi-person-fill p-1">%</i>
-                          </span>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <!-- NIK -->
-                <div class="row">
-                  <div class="col-5">
-                    <div class="row">
-                      <div class="col-3">
-                        <div class="row">
-                          <div class="col-11">
-                            <label for="nik" class="form-label">NIK</label>
-                          </div>
-                          <div class="col">
-                            :
-                          </div>
-                        </div>
-                      </div>
-                      <div class="col-9">
-                        <input type="number" name="nik" value="<?= $id ?>" readonly />
-                      </div>
-                    </div>
-                  </div>
-                  <!-- teamwork -->
-                  <div class="col">
-                    <div class="row">
-                      <div class="col-3">
-                        <div class="row">
-                          <div class="col-11">
-                            <div class="mb-4 input-group">
-                              <label for="teamwork" class="form-label">Teamwork (30%)</label>
-                            </div>
-                          </div>
-                          <div class="col">
-                            :
-                          </div>
-                        </div>
-                      </div>
-                      <div class="col-9 w-50">
-                        <div class="mb-4 input-group">
-                          <input type="number" name="teamwork" step="1" min="1" max="100" onFocus="start_count();"
-                            onBlur="stop_count();" value="<?= $data['teamwork']; ?>" readonly>
-                          <span class="input-group-text">
-                            <i class="bi bi-person-fill p-1">%</i>
-                          </span>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="row">
-                  <!-- NAMA -->
-                  <div class="col-5">
-                    <div class="row">
-                      <div class="col-3">
-                        <div class="row">
-                          <div class="col-11">
-                            <label for="nama" class="form-label">Nama</label>
-                          </div>
-                          <div class="col">
-                            :
-                          </div>
-                        </div>
-                      </div>
-                      <div class="col-9">
-                        <input type="text" name="nama" placeholder="Nama" value="<?= $data['nama']; ?>" readonly />
-                      </div>
-                    </div>
-                  </div>
-                  <!-- Time Management -->
-                  <div class="col">
-                    <div class="row">
-                      <div class="col-3">
-                        <div class="row">
-                          <div class="col-11">
-                            <div class="mb-4 input-group">
-                              <label for="timeManagement" class="form-label">Time Management(40%)</label>
-                            </div>
-                          </div>
-                          <div class="col">
-                            :
-                          </div>
-                        </div>
-                      </div>
-                      <div class="col-9 w-50">
-                        <div class="mb-4 input-group">
-                          <input type="number" name="timemanagement" step="1" min="1" max="100" onFocus="start_count();"
-                            onBlur="stop_count();" value="<?= $data['management_time']; ?>" readonly>
-                          <span class="input-group-text">
-                            <i class="bi bi-person-fill p-1">%</i>
-                          </span>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="row">
-                  <!-- Status Kerja -->
-                  <div class="col-5">
-                    <div class="row">
-                      <div class="col-3">
-                        <div class="row">
-                          <div class="col-11">
-                            <label for="statusKerja" class="form-label">Status Kerja</label>
-                          </div>
-                          <div class="col">
-                            :
-                          </div>
-                        </div>
-                      </div>
-                      <div class="col-9">
-                        <select name="status_kerja" readonly>
-                          <option value="tidak tetap" <?php if ($data['status_kerja'] == 'Tidak Tetap')
-                            echo 'selected'; ?>>
-                            Tidak Tetap</option>
-                          <option value="tetap" <?php if ($data['status_kerja'] == 'Tetap')
-                            echo 'selected'; ?>>Tetap
-                          </option>
-                        </select>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col">
-                    <!-- TOTAL -->
-                    <div class="row">
-                      <div class="col-3">
-                        <div class="row">
-                          <div class="col-11">
-                            <div class="mb-4 input-group">
-                              <label for="total" class="form-label">Total</label>
-                            </div>
-                          </div>
-                          <div class="col">
-                            :
-                          </div>
-                        </div>
-                      </div>
-                      <div class="col-9 w-50">
-                        <input type="number" name="total" value="<?= $data['total']; ?>" readonly>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <!-- POSISI -->
-                <div class="row">
-                  <div class="col-5">
-                    <div class="row">
-                      <div class="col-3">
-                        <div class="row">
-                          <div class="col-11">
-                            <label for="posisi" class="form-label">Posisi</label>
-                          </div>
-                          <div class="col">
-                            :
-                          </div>
-                        </div>
-                      </div>
-                      <div class="col-9">
-                        <input type="text" name="position" placeholder="Posisi" value="<?= $data['position']; ?>"
-                          readonly />
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col">
-                    <!-- GRADE -->
-                    <div class="row mb-5">
-                      <div class="col-3">
-                        <div class="row">
-                          <div class="col-11">
-                            <div class="mb-4 input-group">
-                              <label for="grade" class="form-label">Grade</label>
-                            </div>
-                          </div>
-                          <div class="col">
-                            :
-                          </div>
-                        </div>
-                      </div>
-                      <div class="col-9 w-50">
-                        <input type="text" name="grade" value="<?= $data['grade']; ?>" readonly>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                </form>
-              
         </section>
         <?php
     }
@@ -833,8 +836,10 @@ include_once("connection.php");
                       <!-- Foto -->
                       <div class="row">
                         <div class="col-8">
-                          <input type="hidden" name="old" value="<?= $data['foto']; ?>">
-                          <span><?= "<img src='image/" . $data['foto'] . "' width='100' height='100' title='" . $data['nama'] . "'/>"; ?></span>
+                          <span>
+                            <?= "<img src='image/" . $data['foto'] . "' width='100' height='100' title='" . $data['nama'] . "'/>"; ?>
+                            <?php echo $data["foto"]; ?>
+                          </span>
                           <input id="file" type="file" class="form-control w-75" accept=".png, .jpg, .jpeg, .jfif, .gif"
                             name="file">
                         </div>
@@ -847,7 +852,8 @@ include_once("connection.php");
                       <!-- 3 Buttons -->
                       <div class="row">
                         <div class="col">
-                          <input type="submit" value="update" name="update" onclick="window.location.href='performance.php'" class="btn btn-success w-100" id="update" />
+                          <input type="submit" value="update" name="update" onclick="window.location.href='performance.php'"
+                            class="btn btn-success w-100" id="update" />
                         </div>
                         <div class="row">
                           <div class="col">
@@ -1093,7 +1099,12 @@ include_once("connection.php");
 
     if (isset($_POST['update'])) {
       $id = $_POST['nik'];
-      $old_foto = $_POST['old'];
+
+      $query = "SELECT foto FROM performance WHERE nik='$id'";
+      $result = mysqli_query($con, $query);
+      $data = mysqli_fetch_array($result);
+      $old_foto = $data['foto'];
+      
       $new_foto = $_FILES['file']['tmp_name'];
       $nama = $_POST['nama'];
       $status_kerja = $_POST['status_kerja'];
@@ -1119,12 +1130,15 @@ include_once("connection.php");
                                             WHERE nik='$id'";
         $result = mysqli_query($con, $sql);
       } else {
-        unlink('image/'.$old_foto);
-        $loc = $_FILES['file']['tmp_name'];
-        $filenm = $nama.'-'.uniqid().'.png';
-        move_uploaded_file($loc, 'image/'.$filenm);
+        $dummy = unlink('image/' . $old_foto);
+        if($dummy){
 
-        $sql = "UPDATE performance SET 
+          
+          $loc = $_FILES['file']['tmp_name'];
+          $filenm = $nama . '-' . uniqid() . '.png';
+          move_uploaded_file($loc, 'image/' . $filenm);
+          
+          $sql = "UPDATE performance SET 
                                             foto ='$filenm ',
                                             nama='$nama', 
                                             status_kerja ='$status_kerja',
@@ -1137,6 +1151,9 @@ include_once("connection.php");
                                             grade = '$grade'
                                             WHERE nik='$id'";
         $result = mysqli_query($con, $sql);
+      } else {
+        echo $dummy;
+      }
       }
       echo '<script>window.location.href = "performance.php";</script>';
     }
