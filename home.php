@@ -47,7 +47,7 @@
       <div class="col-sm-4 d-flex align-items-center justify-content-center px-2 py-2">
         <div class="card px-5 w-100 h-100">
           <div class="card-body pie-chart-padding">
-            <h2 class="d-flex align-item-center justify-content-center text-adjust">Karyawan</h2>
+            <h3 class="d-flex align-item-center justify-content-center text-adjust">Karyawan</h3>
             <p id="date" class="text-adjust text-center py-1"></p>
             <canvas id="karyawanChart"></canvas>
           </div>
@@ -58,7 +58,7 @@
       <div class="col-sm-4 d-flex align-items-center justify-content-center px-2 py-2">
         <div class="card py-4 w-100 h-100">
           <div class="card-body ">
-            <h2 class="d-flex align-item-center justify-content-center text-adjust text-center">Hasil Performance Karyawan Tetap</h2>
+            <h3 class="d-flex align-item-center justify-content-center text-adjust text-center">Hasil Performance Karyawan Tetap</h3>
             <p id="date_y" class="text-adjust text-center py-1"></p>
             <canvas id="TetapChart" class="pt-2"></canvas>
             
@@ -70,7 +70,7 @@
       <div class="col-sm-4 d-flex align-items-center justify-content-center px-2 py-2">
         <div class="card py-4 w-100 h-100">
           <div class="card-body">
-            <h2 class="d-flex align-item-center justify-content-center text-adjust text-center">Hasil Performance Karyawan Tidak Tetap</h2>
+            <h3 class="d-flex align-item-center justify-content-center text-adjust text-center">Hasil Performance Karyawan Tidak Tetap</h3>
             <p id="date_y2" class="text-adjust text-center py-1"></p>
             <canvas id="TidakTetapChart" class="pt-2"></canvas>
             
@@ -323,7 +323,10 @@
         }]
       },
       options: {
-        // Configure additional options for the pie chart if needed
+        
+        backgroundColor : [
+          'rgb(8, 160, 69)', 'rgb(107, 191, 84)'
+        ]
       }
     });
 
@@ -338,7 +341,13 @@
         }]
       },
       options: {
-        // Configure additional options for the bar chart if needed
+        
+        backgroundColor : [
+          'rgb(107, 191, 84)',
+          'rgb(33, 211, 117)',
+          'rgb(8, 160, 69)',
+          'rgb(11, 110, 79)'
+        ]
       }
     });
 
@@ -353,7 +362,14 @@
         }]
       },
       options: {
-        // Configure additional options for the second bar chart if needed
+       
+        backgroundColor : [
+          'rgb(107, 191, 84)',
+          'rgb(33, 211, 117)',
+          'rgb(8, 160, 69)',
+          'rgb(11, 110, 79)'
+        ],
+        
       }
     });
   </script>
