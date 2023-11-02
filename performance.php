@@ -516,17 +516,18 @@ include_once("connection.php");
   {
     if (isset($_GET['kd'])) {
       $id = $_GET['kd'];
-      $img = $_GET['img'];
-      unlink('image/' . $img);
+      $query = "SELECT foto FROM performance WHERE nik='$id'";
+      $result = mysqli_query($con, $query);
+      $data = mysqli_fetch_array($result);
+
+      unlink('image/' . $data['foto']);
       $sql = "DELETE FROM performance WHERE nik='$id'";
       $result = mysqli_query($con, $sql);
       if ($result) {
         header('location: performance.php');
       }
-    }
-
-  }
-
+}
+}
   //function view
   function view($con)
   {
@@ -1124,7 +1125,7 @@ include_once("connection.php");
             $loc = $_FILES['file']['tmp_name'];
 
             // Generate a unique filename
-            $unique_filename = time() . '-' . uniqid() . '-' . mt_rand() . '.png';
+            $unique_filename = $nama . '-' . uniqid() . '-' . mt_rand() . '.png';
             move_uploaded_file($loc, 'image/' . $unique_filename);
             $sql .= ", foto = '$unique_filename'";
           }
