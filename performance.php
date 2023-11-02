@@ -1141,6 +1141,7 @@ include_once("connection.php");
       echo '<script>window.location.href = "performance.php";</script>';
     }
   }
+}
   ?>
 
     <!-- footer -->
