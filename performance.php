@@ -141,7 +141,7 @@ include_once("connection.php");
                   <!-- 3 Buttons -->
                   <div class="row">
                     <div class="col">
-                      <input type="submit" name="submit" value="Submit" class="btn btn-success w-100" id="submit">
+                      <input type="submit" name="submit" value="submit" class="btn btn-success w-100" id="submit">
                     </div>
                     <div class="row">
                       <div class="col">
@@ -151,7 +151,7 @@ include_once("connection.php");
                     <div class="row">
                       <div class="col">
                         <button type="button" class="btn btn-secondary w-100"><a href="performance.php"
-                            style="text-decoration: none; color: inherit; font-weight: inherit;">Cancel</a></button>
+                            style="text-decoration: none; color: inherit; font-weight: inherit;">cancel</a></button>
                       </div>
                     </div>
                   </div>
@@ -163,7 +163,7 @@ include_once("connection.php");
                   <!-- Tanggal Penilaian -->
                   <div class="row">
                     <div class="col-3">
-                      <label for="tanggalPenilaian" class="form-label text-capitalize">Tanggal Penilaian :</label>
+                      <label for="tanggalPenilaian" class="form-label text-capitalize">Tanggal Penilaian:</label>
                     </div>
                     <div class="col-9">
                       <input id="tanggalPenilaian" type="date" class="form-control w-75" name="tanggalPenilaian" min="0"
@@ -488,11 +488,11 @@ include_once("connection.php");
                 </td>
                 <td align="center">
                   <a href="performance.php?aksi=view&kd=<?= $data['nik']; ?>"><button type="button"
-                      class="btn btn-primary">View</button>
+                      class="btn btn-primary">view</button>
                   </a> |
                   <a href="performance.php?aksi=edit&kd=<?= $data['nik']; ?>">Edit</a> |
-                  <a href="performance.php?aksi=hapus&kd=<?= $data['nik']; ?>&img=<?= $data['file']; ?>"
-                    onclick="return confirm('Apakah yakin dihapus?')">Hapus</a>
+                  <a href="performance.php?aksi=hapus&kd=<?= $data['nik']; ?>"
+                    onclick="return confirm('Apakah yakin dihapus?')">hapus</a>
                 </td>
               </tr>
               <?php
@@ -526,8 +526,8 @@ include_once("connection.php");
       if ($result) {
         header('location: performance.php');
       }
-}
-}
+    }
+  }
   //function view
   function view($con)
   {
@@ -572,7 +572,7 @@ include_once("connection.php");
                       <div class="row">
                         <div class="col">
                           <button type="button" class="btn btn-secondary w-100"> <a href="performance.php"
-                              style="text-decoration: none; color: inherit; font-weight: inherit;">Cancel</a></button>
+                              style="text-decoration: none; color: inherit; font-weight: inherit;">cancel</a></button>
                         </div>
                       </div>
                     </div>
@@ -584,10 +584,11 @@ include_once("connection.php");
                   <!-- Tanggal Penilaian -->
                   <div class="row">
                     <div class="col-3">
-                      <label for="tanggalPenilaian" class="form-label text-capitalize">Tanggal Penilaian :</label>
+                      <label for="tanggalPenilaian" class="form-label text-capitalize">Tanggal Penilaian:</label>
                     </div>
                     <div class="col-9">
-                      <input type="date" name="tgl_penilaian" value="<?= $data['tgl_penilaian']; ?>" readonly />
+                      <input type="date" name="tgl_penilaian" class="form-control w-75" max="100"
+                        value="<?= $data['tgl_penilaian']; ?>" readonly />
                     </div>
                   </div>
                 </div>
@@ -609,8 +610,8 @@ include_once("connection.php");
                     </div>
                     <div class="col-9 w-50">
                       <div class="mb-4 input-group">
-                        <input type="number" name="responsibility" step="1" min="1" max="100" onFocus="start_count();"
-                          onBlur="stop_count();" value="<?= $data['responsibility']; ?>" readonly>
+                        <input class="form-control w-25" type="number" name="responsibility" step="1" min="1" max="100"
+                          onFocus="start_count();" onBlur="stop_count();" value="<?= $data['responsibility']; ?>" readonly>
                         <span class="input-group-text">
                           <i class="bi bi-person-fill p-1">%</i>
                         </span>
@@ -634,7 +635,7 @@ include_once("connection.php");
                       </div>
                     </div>
                     <div class="col-9">
-                      <input type="number" name="nik" value="<?= $id ?>" readonly />
+                      <input class="form-control w-75" type="number" name="nik" value="<?= $id ?>" readonly />
                     </div>
                   </div>
                 </div>
@@ -655,8 +656,8 @@ include_once("connection.php");
                     </div>
                     <div class="col-9 w-50">
                       <div class="mb-4 input-group">
-                        <input type="number" name="teamwork" step="1" min="1" max="100" onFocus="start_count();"
-                          onBlur="stop_count();" value="<?= $data['teamwork']; ?>" readonly>
+                        <input class="form-control w-25" type="number" name="teamwork" step="1" min="1" max="100"
+                          onFocus="start_count();" onBlur="stop_count();" value="<?= $data['teamwork']; ?>" readonly>
                         <span class="input-group-text">
                           <i class="bi bi-person-fill p-1">%</i>
                         </span>
@@ -680,7 +681,8 @@ include_once("connection.php");
                       </div>
                     </div>
                     <div class="col-9">
-                      <input type="text" name="nama" placeholder="Nama" value="<?= $data['nama']; ?>" readonly />
+                      <input class="form-control w-75" type="text" name="nama" placeholder="Nama"
+                        value="<?= $data['nama']; ?>" readonly />
                     </div>
                   </div>
                 </div>
@@ -701,8 +703,8 @@ include_once("connection.php");
                     </div>
                     <div class="col-9 w-50">
                       <div class="mb-4 input-group">
-                        <input type="number" name="timemanagement" step="1" min="1" max="100" onFocus="start_count();"
-                          onBlur="stop_count();" value="<?= $data['management_time']; ?>" readonly>
+                        <input class="form-control w-25" type="number" name="timemanagement" step="1" min="1" max="100"
+                          onFocus="start_count();" onBlur="stop_count();" value="<?= $data['management_time']; ?>" readonly>
                         <span class="input-group-text">
                           <i class="bi bi-person-fill p-1">%</i>
                         </span>
@@ -726,7 +728,7 @@ include_once("connection.php");
                       </div>
                     </div>
                     <div class="col-9">
-                      <select name="status_kerja" readonly>
+                      <select class="form-control w-75" name="status_kerja" readonly disabled>
                         <option value="tidak tetap" <?php if ($data['status_kerja'] == 'Tidak Tetap')
                           echo 'selected'; ?>>
                           Tidak Tetap</option>
@@ -753,7 +755,7 @@ include_once("connection.php");
                       </div>
                     </div>
                     <div class="col-9 w-50">
-                      <input type="number" name="total" value="<?= $data['total']; ?>" readonly>
+                      <input class="form-control w-100" type="number" name="total" value="<?= $data['total']; ?>" readonly>
                     </div>
                   </div>
                 </div>
@@ -773,7 +775,8 @@ include_once("connection.php");
                       </div>
                     </div>
                     <div class="col-9">
-                      <input type="text" name="position" placeholder="Posisi" value="<?= $data['position']; ?>" readonly />
+                      <input class="form-control w-75" type="text" name="position" placeholder="Posisi"
+                        value="<?= $data['position']; ?>" readonly />
                     </div>
                   </div>
                 </div>
@@ -793,7 +796,7 @@ include_once("connection.php");
                       </div>
                     </div>
                     <div class="col-9 w-50">
-                      <input type="text" name="grade" value="<?= $data['grade']; ?>" readonly>
+                      <input class="form-control w-100" type="text" name="grade" value="<?= $data['grade']; ?>" readonly>
                     </div>
                   </div>
                 </div>
@@ -855,13 +858,13 @@ include_once("connection.php");
                         </div>
                         <div class="row">
                           <div class="col">
-                            <input type="reset" value="Clear" class="btn btn-danger w-100">
+                            <input type="reset" value="clear" class="btn btn-danger w-100">
                           </div>
                         </div>
                         <div class="row">
                           <div class="col">
                             <button type="button" class="btn btn-secondary w-100"> <a href="performance.php"
-                                style="text-decoration: none; color: inherit; font-weight: inherit;">Cancel</a></button>
+                                style="text-decoration: none; color: inherit; font-weight: inherit;">cancel</a></button>
                           </div>
                         </div>
                       </div>
@@ -874,10 +877,11 @@ include_once("connection.php");
                   <!-- Tanggal Penilaian -->
                   <div class="row">
                     <div class="col-3">
-                      <label for="tanggalPenilaian" class="form-label text-capitalize">Tanggal Penilaian :</label>
+                      <label for="tanggalPenilaian" class="form-label text-capitalize">Tanggal Penilaian:</label>
                     </div>
                     <div class="col-9">
-                      <input type="date" name="tgl_penilaian" value="<?= $data['tgl_penilaian']; ?>" />
+                      <input class="form-control w-75" type="date" name="tgl_penilaian"
+                        value="<?= $data['tgl_penilaian']; ?>" />
                     </div>
                   </div>
                 </div>
@@ -899,8 +903,8 @@ include_once("connection.php");
                     </div>
                     <div class="col-9 w-50">
                       <div class="mb-4 input-group">
-                        <input type="number" name="responsibility" step="1" min="1" max="100" oninput="hitung();"
-                          value="<?= $data['responsibility']; ?>" id="responsibility">
+                        <input class="form-control w-25" type="number" name="responsibility" step="1" min="1" max="100"
+                          oninput="hitung();" value="<?= $data['responsibility']; ?>" id="responsibility">
                         <span class="input-group-text">
                           <i class="bi bi-person-fill p-1">%</i>
                         </span>
@@ -924,7 +928,7 @@ include_once("connection.php");
                       </div>
                     </div>
                     <div class="col-9">
-                      <input type="number" name="nik" value="<?= $id ?>" />
+                      <input class="form-control w-75" type="number" name="nik" value="<?= $id ?>" />
                     </div>
                   </div>
                 </div>
@@ -945,8 +949,8 @@ include_once("connection.php");
                     </div>
                     <div class="col-9 w-50">
                       <div class="mb-4 input-group">
-                        <input type="number" name="teamwork" step="1" min="1" max="100" oninput="hitung();"
-                          value="<?= $data['teamwork']; ?>" id="teamwork">
+                        <input class="form-control w-25" type="number" name="teamwork" step="1" min="1" max="100"
+                          oninput="hitung();" value="<?= $data['teamwork']; ?>" id="teamwork">
                         <span class="input-group-text">
                           <i class="bi bi-person-fill p-1">%</i>
                         </span>
@@ -970,7 +974,8 @@ include_once("connection.php");
                       </div>
                     </div>
                     <div class="col-9">
-                      <input type="text" name="nama" placeholder="Nama" value="<?= $data['nama']; ?>" />
+                      <input class="form-control w-75" type="text" name="nama" placeholder="Nama"
+                        value="<?= $data['nama']; ?>" />
                     </div>
                   </div>
                 </div>
@@ -991,8 +996,8 @@ include_once("connection.php");
                     </div>
                     <div class="col-9 w-50">
                       <div class="mb-4 input-group">
-                        <input type="number" name="timemanagement" step="1" min="1" max="100" oninput="hitung();"
-                          value="<?= $data['management_time']; ?>" id="timeManagement">
+                        <input class="form-control w-25" type="number" name="timemanagement" step="1" min="1" max="100"
+                          oninput="hitung();" value="<?= $data['management_time']; ?>" id="timeManagement">
                         <span class="input-group-text">
                           <i class="bi bi-person-fill p-1">%</i>
                         </span>
@@ -1016,7 +1021,7 @@ include_once("connection.php");
                       </div>
                     </div>
                     <div class="col-9">
-                      <select name="status_kerja" readonly>
+                      <select class="form-control w-75" name="status_kerja" readonly>
                         <option value="tidak tetap" <?php if ($data['status_kerja'] == 'Tidak Tetap')
                           echo 'selected'; ?>>
                           Tidak Tetap</option>
@@ -1043,7 +1048,8 @@ include_once("connection.php");
                       </div>
                     </div>
                     <div class="col-9 w-50">
-                      <input type="number" name="total" value="<?= $data['total']; ?>" id="total" readonly>
+                      <input class="form-control w-100" min="0" max="100" type="number" name="total"
+                        value="<?= $data['total']; ?>" id="total" readonly>
                     </div>
                   </div>
                 </div>
@@ -1063,7 +1069,8 @@ include_once("connection.php");
                       </div>
                     </div>
                     <div class="col-9">
-                      <input type="text" name="position" placeholder="Posisi" value="<?= $data['position']; ?>">
+                      <input class="form-control w-75" type="text" name="position" placeholder="Posisi"
+                        value="<?= $data['position']; ?>">
                     </div>
                   </div>
                 </div>
@@ -1083,7 +1090,8 @@ include_once("connection.php");
                       </div>
                     </div>
                     <div class="col-9 w-50">
-                      <input type="text" name="grade" value="<?= $data['grade']; ?>" id="grade" readonly>
+                      <input class="form-control w-100" type="text" name="grade" value="<?= $data['grade']; ?>" id="grade"
+                        readonly>
                     </div>
                   </div>
                 </div>
@@ -1149,10 +1157,10 @@ include_once("connection.php");
       <div class="row pt-3">
         <ul class="nav justify-content-center pb-2">
           <li class="nav-item mx-5 h4">
-            <a href="#" class="nav-link px-2 text-light">Home</a>
+            <a href="home.php" class="nav-link px-2 text-light">Home</a>
           </li>
           <li class="nav-item mx-5 h4">
-            <a href="#" class="nav-link px-2 text-light">Performance</a>
+            <a href="performance.php" class="nav-link px-2 text-light">Performance</a>
           </li>
         </ul>
       </div>
@@ -1169,7 +1177,7 @@ include_once("connection.php");
                 <td class="py-3">
                   <img src="icon/marker.png" alt="location"
                     style="width: 20px; filter: invert(100%) sepia(0%) saturate(7482%) hue-rotate(72deg) brightness(99%) contrast(99%);">
-                  Company Name
+                  PT. Health Foods Indonesia Jaya
                 </td>
               </tr>
               <tr>
@@ -1202,7 +1210,7 @@ include_once("connection.php");
         </div>
       </div>
       <div class="row">
-        <p class="text-center text-light">© 2023 Company, Inc</p>
+        <p class="text-center text-light pb-5">© 2023 PT. Health Foods Indonesia Jaya, Inc</p>
       </div>
 
     </footer>

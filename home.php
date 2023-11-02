@@ -193,66 +193,66 @@
 
   <!-- footer -->
   <footer class="pt-3 mt-4 bg-black container-fluid text-light">
-    <div class="row pt-3">
-      <ul class="nav justify-content-center pb-2">
-        <li class="nav-item mx-5 h4">
-          <a href="#" class="nav-link px-2 text-light">Home</a>
-        </li>
-        <li class="nav-item mx-5 h4">
-          <a href="#" class="nav-link px-2 text-light">Performance</a>
-        </li>
-      </ul>
-    </div>
-    <hr class="d-flex justify-content-center mx-auto">
-    <div class="row px-5 mx-5">
-      <div class="col ps-5 ms-5">
-        <img src="image/logo/HEalty.png" alt="logo" class="img-fluid mx-auto d-block footer-custom-img">
+      <div class="row pt-3">
+        <ul class="nav justify-content-center pb-2">
+          <li class="nav-item mx-5 h4">
+            <a href="home.php" class="nav-link px-2 text-light">Home</a>
+          </li>
+          <li class="nav-item mx-5 h4">
+            <a href="performance.php" class="nav-link px-2 text-light">Performance</a>
+          </li>
+        </ul>
       </div>
-      <div class="col pe-5 me-5 d-flex flex-column justify-content-center ">
-        <div class="row">
-
-          <table>
-            <tr>
-              <td class="py-3">
-                <img src="icon/marker.png" alt="location"
-                  style="width: 20px; filter: invert(100%) sepia(0%) saturate(7482%) hue-rotate(72deg) brightness(99%) contrast(99%);">
-                Company Name
-              </td>
-            </tr>
-            <tr>
-              <td class="pb-3">
-                <img src="icon/phone-call.png" alt="Phone Number"
-                  style="width: 20px; filter: invert(100%) sepia(0%) saturate(7482%) hue-rotate(72deg) brightness(99%) contrast(99%);">
-                (123)
-                456-7890
-              </td>
-            <tr>
-              <td class="pb-3">
-                <img src="icon/fax.png" alt="Fax"
-                  style="width: 20px; filter: invert(100%) sepia(0%) saturate(7482%) hue-rotate(72deg) brightness(99%) contrast(99%);">
-                #(123) 456-7890
-              </td>
-            </tr>
-          </table>
+      <hr class="d-flex justify-content-center mx-auto">
+      <div class="row px-5 mx-5">
+        <div class="col ps-5 ms-5">
+          <img src="image/logo/HEalty.png" alt="logo" class="img-fluid mx-auto d-block footer-custom-img">
         </div>
+        <div class="col pe-5 me-5 d-flex flex-column justify-content-center ">
+          <div class="row">
 
-        <br />
-        <div class="row bg-black">
-          <ul class="icon">
-            <li><a href="#"><img src="icon/instagram.png" alt="ig"></a></li>
-            <li><a href="#"><img src="icon/facebook.png" alt="fb"></a></li>
-            <li><a href="#"><img src="icon/linkedin.png" alt="li"></a></li>
-            <li><a href="#"><img src="icon/youtube.png" alt="yt"></a></li>
-            <li><a href="#"><img src="icon/twitter.png" alt="tw"></a></li>
-          </ul>
+            <table>
+              <tr>
+                <td class="py-3">
+                  <img src="icon/marker.png" alt="location"
+                    style="width: 20px; filter: invert(100%) sepia(0%) saturate(7482%) hue-rotate(72deg) brightness(99%) contrast(99%);">
+                  PT. Health Foods Indonesia Jaya
+                </td>
+              </tr>
+              <tr>
+                <td class="pb-3">
+                  <img src="icon/phone-call.png" alt="Phone Number"
+                    style="width: 20px; filter: invert(100%) sepia(0%) saturate(7482%) hue-rotate(72deg) brightness(99%) contrast(99%);">
+                  (123)
+                  456-7890
+                </td>
+              <tr>
+                <td class="pb-3">
+                  <img src="icon/fax.png" alt="Fax"
+                    style="width: 20px; filter: invert(100%) sepia(0%) saturate(7482%) hue-rotate(72deg) brightness(99%) contrast(99%);">
+                  #(123) 456-7890
+                </td>
+              </tr>
+            </table>
+          </div>
+
+          <br />
+          <div class="row bg-black">
+            <ul class="icon">
+              <li><a href="#"><img src="icon/instagram.png" alt="ig"></a></li>
+              <li><a href="#"><img src="icon/facebook.png" alt="fb"></a></li>
+              <li><a href="#"><img src="icon/linkedin.png" alt="li"></a></li>
+              <li><a href="#"><img src="icon/youtube.png" alt="yt"></a></li>
+              <li><a href="#"><img src="icon/twitter.png" alt="tw"></a></li>
+            </ul>
+          </div>
         </div>
       </div>
-    </div>
-    <div class="row">
-      <p class="text-center text-light">© 2023 Company, Inc</p>
-    </div>
+      <div class="row">
+        <p class="text-center text-light pb-5">© 2023 PT. Health Foods Indonesia Jaya, Inc</p>
+      </div>
 
-  </footer>
+    </footer>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-..."
     crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
