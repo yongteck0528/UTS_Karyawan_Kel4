@@ -491,7 +491,7 @@ include_once("connection.php");
                       class="btn btn-primary">View</button>
                   </a> |
                   <a href="performance.php?aksi=edit&kd=<?= $data['nik']; ?>">Edit</a> |
-                  <a href="performance.php?aksi=hapus&kd=<?= $data['nik']; ?>&img=<?= $data['file']; ?>"
+                  <a href="performance.php?aksi=hapus&kd=<?= $data['nik']; ?>&img=<?=$data['file'];?>"
                     onclick="return confirm('Apakah yakin dihapus?')">Hapus</a>
                 </td>
               </tr>
@@ -516,14 +516,15 @@ include_once("connection.php");
   {
     if (isset($_GET['kd'])) {
       $id = $_GET['kd'];
-      $img = $_GET['img'];
-      unlink('image/' . $img);
+      $img	= $_GET['img'];
+			unlink('image/'.$img);
       $sql = "DELETE FROM performance WHERE nik='$id'";
       $result = mysqli_query($con, $sql);
       if ($result) {
         header('location: performance.php');
       }
     }
+
   }
 
   //function view
@@ -547,35 +548,35 @@ include_once("connection.php");
                   </div>
                 </div>
 
-                <div class="container mx-auto mt-5">
-                </div>
-                <form method="POST" enctype="multipart/form-data" id="performanceForm">
-                  <div class="row pb-5">
-                    <div class="col-5">
-                      <!-- Foto -->
-                      <div class="row">
-                        <div class="col-8">
-                          <?= "<img src='image/" . $data['foto'] . "' width='100' height='100' title='" . $data['nama'] . "'/>"; ?>
-                        </div>
-                      </div>
-                    </div>
-                    <!-- SPACE KOSONG -->
-                    <div class="col-6"></div>
-                    <div class="col-1">
-                      <!-- 3 Buttons -->
-                      <div class="row">
-                        <div class="col">
-                        </div>
-                      </div>
-                      <div class="row">
-                        <div class="col">
-                          <button type="button" class="btn btn-secondary w-100"> <a href="performance.php"
-                              style="text-decoration: none; color: inherit; font-weight: inherit;">Cancel</a></button>
-                        </div>
-                      </div>
-                    </div>
+                  <div class="container mx-auto mt-5">
                   </div>
-              </div>
+                  <form method="POST" enctype="multipart/form-data" id="performanceForm">
+                    <div class="row pb-5">
+                      <div class="col-5">
+                        <!-- Foto -->
+                        <div class="row">
+                          <div class="col-8">
+                            <?= "<img src='image/" . $data['foto'] . "' width='100' height='100' title='" . $data['nama'] . "'/>"; ?>
+                          </div>
+                        </div>
+                      </div>
+                      <!-- SPACE KOSONG -->
+                      <div class="col-6"></div>
+                      <div class="col-1">
+                        <!-- 3 Buttons -->
+                        <div class="row">
+                          <div class="col">
+                          </div>
+                        </div>
+                        <div class="row">
+                          <div class="col">
+                            <button type="button" class="btn btn-secondary w-100"> <a href="performance.php"
+                                style="text-decoration: none; color: inherit; font-weight: inherit;">Cancel</a></button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                </div>
 
               <div class="row">
                 <div class="col-5">
@@ -833,9 +834,7 @@ include_once("connection.php");
                       <div class="row">
                         <div class="col-8">
                           <input type="hidden" name="old" value="<?= $data['foto']; ?>">
-                          <span>
-                            <?= "<img src='image/" . $data['foto'] . "' width='100' height='100' title='" . $data['nama'] . "'/>"; ?>
-                          </span>
+                          <span><?= "<img src='image/" . $data['foto'] . "' width='100' height='100' title='" . $data['nama'] . "'/>"; ?></span>
                           <input id="file" type="file" class="form-control w-75" accept=".png, .jpg, .jpeg, .jfif, .gif"
                             name="file">
                         </div>
@@ -1106,41 +1105,42 @@ include_once("connection.php");
           $total = $_POST['total'];
           $grade = $_POST['grade'];
 
-          $sql = "UPDATE performance SET 
-                nama = '$nama', 
-                status_kerja = '$status_kerja',
-                position = '$position',
-                tgl_penilaian = '$tgl_penilaian',
-                responsibility = '$responsibility',
-                teamwork = '$teamwork',
-                management_time = '$management_time',
-                total = '$total',
-                grade = '$grade'";
+      if ($new_foto == "") {
+        $sql = "UPDATE performance SET 
+                                            nama='$nama', 
+                                            status_kerja ='$status_kerja',
+                                            position ='$position',
+                                            tgl_penilaian ='$tgl_penilaian',
+                                            responsibility ='$responsibility',
+                                            teamwork ='$teamwork',
+                                            management_time ='$management_time',
+                                            total ='$total',
+                                            grade = '$grade'
+                                            WHERE nik='$id'";
+        $result = mysqli_query($con, $sql);
+      } else {
+        unlink('image/'.$old_foto);
+        $loc = $_FILES['file']['tmp_name'];
+        $filenm = $nama.'-'.uniqid().'.png';
+        move_uploaded_file($loc, 'image/'.$filenm);
 
-          if (!empty($new_foto)) {
-            unlink('image/' . $old_foto); // Validate if file exists before deletion
-    
-            $loc = $_FILES['file']['tmp_name'];
-
-            // Generate a unique filename
-            $unique_filename = time() . '-' . uniqid() . '-' . mt_rand() . '.png';
-            move_uploaded_file($loc, 'image/' . $unique_filename);
-            $sql .= ", foto = '$unique_filename'";
-          }
-
-          $sql .= " WHERE nik = '$id'";
-          $result = mysqli_query($con, $sql);
-
-          if ($result) {
-            echo '<script>window.location.href = "performance.php";</script>';
-          } else {
-            // Handle SQL error or failed update
-            echo 'Update failed: ' . mysqli_error($con);
-          }
-        }
+        $sql = "UPDATE performance SET 
+                                            foto ='$filenm ',
+                                            nama='$nama', 
+                                            status_kerja ='$status_kerja',
+                                            position ='$position',
+                                            tgl_penilaian ='$tgl_penilaian',
+                                            responsibility ='$responsibility',
+                                            teamwork ='$teamwork',
+                                            management_time ='$management_time',
+                                            total ='$total',
+                                            grade = '$grade'
+                                            WHERE nik='$id'";
+        $result = mysqli_query($con, $sql);
+      }
+      echo '<script>window.location.href = "performance.php";</script>';
     }
   }
-
   ?>
 
     <!-- footer -->
