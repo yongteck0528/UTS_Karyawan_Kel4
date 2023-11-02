@@ -928,7 +928,7 @@ include_once("connection.php");
                       </div>
                     </div>
                     <div class="col-9">
-                      <input class="form-control w-75" type="number" name="nik" value="<?= $id ?>" />
+                      <input class="form-control w-75" type="number" name="nik" value="<?= $id ?>" readonly />
                     </div>
                   </div>
                 </div>
