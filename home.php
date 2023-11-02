@@ -42,7 +42,7 @@
 
   <!-- section 1 -->
   <section class="container h-auto mx-auto">
-    <div class="row">
+    <div class="row pt-5">
       <!-- PIE CHART -->
       <div class="col-sm-4 d-flex align-items-center justify-content-center px-2 py-2">
         <div class="card px-5 w-100 h-100">
@@ -80,7 +80,7 @@
     </div>
   </section>
   <!-- section 2 table karyawan tetap -->
-  <section class="container h-auto mx-auto mt-5 px-2 py-2">
+  <section class="container h-auto mx-auto mt-3 px-2">
 
     <div class="row">
       <div class="col">
