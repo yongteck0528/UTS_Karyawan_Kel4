@@ -491,7 +491,7 @@ include_once("connection.php");
                       class="btn btn-primary">View</button>
                   </a> |
                   <a href="performance.php?aksi=edit&kd=<?= $data['nik']; ?>">Edit</a> |
-                  <a href="performance.php?aksi=hapus&kd=<?= $data['nik'];?>"
+                  <a href="performance.php?aksi=hapus&kd=<?= $data['nik']; ?>"
                     onclick="return confirm('Apakah yakin dihapus?')">Hapus</a>
                 </td>
               </tr>
@@ -558,6 +558,7 @@ include_once("connection.php");
                     <div class="col-5">
                       <!-- Foto -->
                       <div class="row">
+                        <input type="hidden" name="old" value="<?= $data['foto']; ?>">
                         <div class="col-8">
                           <?= "<img src='image/" . $data['foto'] . "' width='100' height='100' title='" . $data['nama'] . "'/>"; ?>
                         </div>
@@ -836,6 +837,7 @@ include_once("connection.php");
                       <!-- Foto -->
                       <div class="row">
                         <div class="col-8">
+                          <input type="hidden" name="old" value="<?= $data['foto']; ?>">
                           <span>
                             <?= "<img src='image/" . $data['foto'] . "' width='100' height='100' title='" . $data['nama'] . "'/>"; ?>
                             <?php echo $data["foto"]; ?>
@@ -1099,12 +1101,7 @@ include_once("connection.php");
 
     if (isset($_POST['update'])) {
       $id = $_POST['nik'];
-
-      $query = "SELECT foto FROM performance WHERE nik='$id'";
-      $result = mysqli_query($con, $query);
-      $data = mysqli_fetch_array($result);
-      $old_foto = $data['foto'];
-      
+      $old_foto = $_POST['old'];
       $new_foto = $_FILES['file']['tmp_name'];
       $nama = $_POST['nama'];
       $status_kerja = $_POST['status_kerja'];
@@ -1130,15 +1127,12 @@ include_once("connection.php");
                                             WHERE nik='$id'";
         $result = mysqli_query($con, $sql);
       } else {
-        $dummy = unlink('image/' . $old_foto);
-        if($dummy){
+        unlink('image/' . $old_foto);
+        $loc = $_FILES['file']['tmp_name'];
+        $filenm = $nama . '-' . uniqid() . '.png';
+        move_uploaded_file($loc, 'image/' . $filenm);
 
-          
-          $loc = $_FILES['file']['tmp_name'];
-          $filenm = $nama . '-' . uniqid() . '.png';
-          move_uploaded_file($loc, 'image/' . $filenm);
-          
-          $sql = "UPDATE performance SET 
+        $sql = "UPDATE performance SET 
                                             foto ='$filenm ',
                                             nama='$nama', 
                                             status_kerja ='$status_kerja',
@@ -1151,9 +1145,6 @@ include_once("connection.php");
                                             grade = '$grade'
                                             WHERE nik='$id'";
         $result = mysqli_query($con, $sql);
-      } else {
-        echo $dummy;
-      }
       }
       echo '<script>window.location.href = "performance.php";</script>';
     }
