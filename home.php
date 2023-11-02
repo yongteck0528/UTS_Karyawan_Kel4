@@ -59,8 +59,9 @@
         <div class="card py-4 w-100 h-100">
           <div class="card-body ">
             <h2 class="d-flex align-item-center justify-content-center text-adjust text-center">Hasil Performance Karyawan Tetap</h2>
-            <canvas id="TetapChart"></canvas>
-            <p id="date_y"></p>
+            <p id="date_y" class="text-adjust text-center py-1"></p>
+            <canvas id="TetapChart" class="pt-2"></canvas>
+            
           </div>
         </div>
       </div>
@@ -70,8 +71,9 @@
         <div class="card py-4 w-100 h-100">
           <div class="card-body">
             <h2 class="d-flex align-item-center justify-content-center text-adjust text-center">Hasil Performance Karyawan Tidak Tetap</h2>
-            <canvas id="TidakTetapChart"></canvas>
-            <p id="date_y2"></p>
+            <p id="date_y2" class="text-adjust text-center py-1"></p>
+            <canvas id="TidakTetapChart" class="pt-2"></canvas>
+            
           </div>
         </div>
       </div>
@@ -362,8 +364,8 @@
     m = n.getMonth() + 1;
     d = n.getDate();
     document.getElementById("date").innerHTML = "[" + d + "-" + m + "-" + y + "]";
-    document.getElementBy("date_y").innerHTML = "[" + y + "]";
-    document.getElementBy("date_y2").innerHTML = "[" + y + "]";
+    document.getElementById("date_y").innerHTML = "[" + y + "]";
+    document.getElementById("date_y2").innerHTML = "[" + y + "]";
   </script>
 
 </body>
