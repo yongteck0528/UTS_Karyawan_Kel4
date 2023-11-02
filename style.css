@@ -118,3 +118,25 @@ footer hr {
 ::-webkit-scrollbar-thumb {
   background: black;
 }
+
+@media only screen and (max-width: 425px) {
+  /* For mobile phones: */
+  .text-adjust{
+    font-size: 90%;
+  }
+  .w-100{
+    width: 75%;
+  }
+  .h-100{
+    height: 75%;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  /* For mobile phones: */
+  .text-adjust{
+    font-size: 95%;
+  }
+}
+
+

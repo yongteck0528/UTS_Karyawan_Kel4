@@ -41,54 +41,49 @@
 
 
   <!-- section 1 -->
-  <section class="container h-auto">
-    <div class="row dashboard align-item-center">
-      <div class="col-md-4">
-        <div class="card">
-          <div class="card-body">
-
-            <h2 class="d-flex align-item-center justify-content-center">Karyawan</h2>
-            <p id="date"></p>
+  <section class="container h-auto mx-auto">
+    <div class="row">
+      <!-- PIE CHART -->
+      <div class="col-sm-4 d-flex align-items-center justify-content-center px-2 py-2">
+        <div class="card px-5 w-100 h-100">
+          <div class="card-body pie-chart-padding">
+            <h2 class="d-flex align-item-center justify-content-center text-adjust">Karyawan</h2>
+            <p id="date" class="text-adjust text-center py-1"></p>
             <canvas id="karyawanChart"></canvas>
-
           </div>
         </div>
-
-
       </div>
-      <div class="col">
 
-        <div class="col-md-4">
-          <div class="card">
-            <div class="card-body">
-              <h2 class="d-flex align-item-center justify-content-center">Hasil Performance Karyawan Tetap</h2>
-              <canvas id="TetapChart"></canvas>
-              <p id="date_y"></p>
-
-            </div>
+      <!-- KARYAWAN TETAP -->
+      <div class="col-sm-4 d-flex align-items-center justify-content-center px-2 py-2">
+        <div class="card py-4 w-100 h-100">
+          <div class="card-body ">
+            <h2 class="d-flex align-item-center justify-content-center text-adjust text-center">Hasil Performance Karyawan Tetap</h2>
+            <canvas id="TetapChart"></canvas>
+            <p id="date_y"></p>
           </div>
         </div>
-        <div class="col-md-4">
-          <div class="card">
-            <div class="card-body">
-              <h2 class="d-flex align-item-center justify-content-center">Hasil Performance Karyawan Tidak Tetap</h2>
-              <canvas id="TidakTetapChart"></canvas>
-              <p id="date_y2"></p>
-            </div>
+      </div>
+
+      <!-- KARYAWAN TIDAK TETAP -->
+      <div class="col-sm-4 d-flex align-items-center justify-content-center px-2 py-2">
+        <div class="card py-4 w-100 h-100">
+          <div class="card-body">
+            <h2 class="d-flex align-item-center justify-content-center text-adjust text-center">Hasil Performance Karyawan Tidak Tetap</h2>
+            <canvas id="TidakTetapChart"></canvas>
+            <p id="date_y2"></p>
           </div>
         </div>
-
       </div>
     </div>
   </section>
-
   <!-- section 2 table karyawan tetap -->
-  <section class="container h-auto mx-auto mt-5">
+  <section class="container h-auto mx-auto mt-5 px-2 py-2">
 
     <div class="row">
       <div class="col">
         <div class="card mt-5 mb-2">
-          <div class="display-6 text-center mb-2"><b>Karyawan Tetap</b> <br> dengan Performance C dan D 2023</div>
+          <h2 class="display-6 text-center mb-2"><b>Karyawan Tetap</b> <br> dengan Performance C dan D 2023</h2>
         </div>
       </div>
     </div>
@@ -138,7 +133,7 @@
   </section>
 
   <!-- section 3 table karyawan tidak tetap-->
-  <section class="container h-auto mx-auto mt-5">
+  <section class="container h-auto mx-auto mt-5 px-2 py-2">
 
     <div class="row">
       <div class="col">
