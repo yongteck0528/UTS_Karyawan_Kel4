@@ -106,9 +106,9 @@
       if (mysqli_num_rows($result) > 0) {
         while ($data = mysqli_fetch_array($result)) {
           ?>
-          <tr>
+          <tr class="align-middle">
             <td>
-              <?= "<img src='image/" . $data['foto'] . "' width='100' height='100' title='" . $data['nama'] . "'/>"; ?>
+              <?= "<img src='image/" . $data['foto'] . "' width='80' height='80' title='" . $data['nama'] . "'/>"; ?>
             </td>
             <td>
               <?= htmlspecialchars($data['nik']) ?>
@@ -161,9 +161,9 @@
       if (mysqli_num_rows($result) > 0) {
         while ($data = mysqli_fetch_array($result)) {
           ?>
-          <tr>
+          <tr class="align-middle">
             <td>
-              <?= "<img src='image/" . $data['foto'] . "' width='100' height='100' title='" . $data['nama'] . "'/>"; ?>
+              <?= "<img src='image/" . $data['foto'] . "' width='80' height='80' title='" . $data['nama'] . "'/>"; ?>
             </td>
             <td>
               <?= htmlspecialchars($data['nik']) ?>
